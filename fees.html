@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="fees_page_title">Fee Structure | Oxford English School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* CSS is unchanged */
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .fee-table th, .fee-table td {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .fee-table th {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            font-weight: 600;
+        }
+        .fee-table tr:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        .fee-table tr:hover {
+            background-color: #e6f0ff;
+        }
+        .fee-table td:first-child {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* Responsive table */
+        @media (max-width: 768px) {
+            .fee-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+        }
+
+        .other-fees-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .fee-card {
+            background: var(--white-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .fee-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            width: 50px;
+        }
+        .fee-card h4 {
+            margin-bottom: 0.25rem;
+        }
+        .fee-card p {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-wrapper"><div class="loader"></div></div>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo"><img src="assets/images/logo.jpg" alt="logo"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-key="nav_home">Home</a></li>
+                    <li><a href="about.html" data-key="nav_about">About</a></li>
+                    <li><a href="gallery.html" data-key="nav_gallery">Gallery</a></li>
+                    <li><a href="events.html" data-key="nav_events">Events</a></li>
+                    <li><a href="fees.html" class="active" data-key="nav_fees">Fees</a></li>
+                    <li><a href="admission.html" data-key="nav_admission">Admission</a></li>
+                    <li><a href="Buses.html" data-key="nav_buses">Buses</a></li>
+                    <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="lang-toggle" id="lang-toggle">
+                <span class="lang-np">नेपा</span>
+                <span class="lang-divider">|</span>
+                <span class="lang-en active">EN</span>
+            </div>
+            <div class="hamburger">
+                <div class="line1"></div><div class="line2"></div><div class="line3"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: var(--nav-height);">
+            <div class="container">
+                <h2 class="section-title" data-key="fees_main_heading">Fee Structure</h2>
+                <p style="text-align: center; max-width: 700px; margin: -2rem auto 3rem auto;" data-key="fees_intro_para">
+                    We are committed to providing a transparent and fair fee structure. Our fees are structured in accordance with the guidelines set by educational authorities in Nepal.
+                </p>
+
+                <div class="reveal">
+                    <table class="fee-table">
+                        <thead>
+                            <tr>
+                                <th data-key="fee_table_th_class">Class Level</th>
+                                <th data-key="fee_table_th_admission">Admission Fee (One-Time)</th>
+                                <th data-key="fee_table_th_annual">Annual Fee (Per Year)</th>
+                                <th data-key="fee_table_th_monthly">Monthly Tuition Fee</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-key="fee_row_pg">Playgroup (PG)</td>
+                                <td>Rs. 5,000 /-</td>
+                                <td>Rs. 25,000 /-</td>
+                                <td>Rs. 2,085 /-</td>
+                            </tr>
+                            <tr>
+                                <td data-key="fee_row_nursery_ukg">Nursery - UKG</td>
+                                <td>Rs. 5,000 /-</td>
+                                <td>Rs. 25,000 /-</td>
+                                <td>Rs. 2,085 /-</td>
+                            </tr>
+                            <tr>
+                                <td data-key="fee_row_class_1_5">Class 1 - 5</td>
+                                <td>Rs. 5,000 /-</td>
+                                <td>Rs. 25,000 /-</td>
+                                <td>Rs. 2,085 /-</td>
+                            </tr>
+                            <tr>
+                                <td data-key="fee_row_class_6_8">Class 6 - 8</td>
+                                <td>Rs. 5,000 /-</td>
+                                <td>Rs. 25,000 /-</td>
+                                <td>Rs. 2,085 /-</td>
+                            </tr>
+                            <tr>
+                                <td data-key="fee_row_class_9_10">Class 9 - 10</td>
+                                <td>Rs. 5,000 /-</td>
+                                <td>Rs. 25,000 /-</td>
+                                <td>Rs. 2,085 /-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size: 0.9rem; text-align: center; margin-top: 1rem;" data-key="fees_note_annual">
+                        <em>* The Annual Fee includes charges for library, first-aid, science lab, computer lab, and examinations.</em>
+                    </p>
+                    <p style="font-size: 0.9rem; text-align: center;" data-key="fees_note_admission">
+                        <em>* Admission Fees are non-refundable. Please contact the accounts office for a detailed breakdown.</em>
+                    </p>
+                </div>
+
+                <div class="reveal" style="margin-top: 4rem;">
+                    <h3 style="text-align: center; margin-bottom: 2rem;" data-key="other_fees_heading">Other Fees & Services (Optional)</h3>
+                    <div class="other-fees-grid">
+                        <div class="fee-card">
+                            <i class="fas fa-bus"></i>
+                            <div>
+                                <h4 data-key="other_fee_transport_title">Transportation</h4>
+                                <p data-key="other_fee_transport_desc">Optional bus service is available. Fees vary based on the route and distance.</p>
+                            </div>
+                        </div>
+                        <div class="fee-card">
+                            <i class="fas fa-tshirt"></i>
+                            <div>
+                                <h4 data-key="other_fee_uniform_title">Uniforms & Books</h4>
+                                <p data-key="other_fee_uniform_desc">Available for purchase from the school's designated counter before the session begins.</p>
+                            </div>
+                        </div>
+                        <div class="fee-card">
+                            <i class="fas fa-utensils"></i>
+                            <div>
+                                <h4 data-key="other_fee_canteen_title">Lunch / Canteen</h4>
+                                <p data-key="other_fee_canteen_desc">Hygienic day-time meals are available at the canteen. This is an optional service.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal" style="margin-top: 4rem; background: var(--light-bg); padding: 2rem; border-radius: 8px;">
+                    <h3 style="text-align: center; margin-bottom: 1.5rem;" data-key="payment_guidelines_heading">Payment Guidelines</h3>
+                    <ul style="list-style-type: disc; margin-left: 1.5rem; max-width: 600px; margin: 0 auto;">
+                        <li data-key="payment_rule_1">All monthly fees must be paid within the **10th of each Nepali month**.</li>
+                        <li data-key="payment_rule_2">A late fee will be applicable for payments made after the due date.</li>
+                        <li data-key="payment_rule_3">Payments can be made directly at the school's Account Section or via Bank/eSewa.</li>
+                        <li data-key="payment_rule_4">Please retain all payment receipts for your records.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="index.html" class="footer-logo"><img src="assets/images/logo.jpg" alt="logo"></a>
+            <p data-key="footer_address">Damak-03, Jhapa, Nepal | Est. 2055 B.S.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="footer-copyright">
+                <span data-key="footer_copyright_prefix">&copy; 2025 Oxford English School.</span>
+                <span data-key="dev_by">Developed By</span> <a class="laxmi" target="_blank" href="https://laxmiprasadrimal.com.np/">Laxmi Prasad Rimal</a> .
+            </p>
+        </div>
+    </footer>
+
+    <a class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+    <script src="script.js"></script>
+</body>
+</html>

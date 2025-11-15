@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="events_page_title">School Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ADDITIONS to your existing style.css for the modal */
+        /* ... (Keep all your existing modal styles here) ... */
+        .event-card { cursor: pointer; }
+        .modal { display: none; position: fixed; z-index: 1050; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px; }
+        .modal-content { background-color: var(--white-color); margin: 5% auto; padding: 0; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); width: 90%; max-width: 700px; animation-name: animatetop; animation-duration: 0.4s }
+        @keyframes animatetop { from {top: -300px; opacity: 0} to {top: 0; opacity: 1} }
+        .modal-header { padding: 15px 20px; background-color: var(--primary-color); color: white; border-top-left-radius: 8px; border-top-right-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .modal-body { padding: 20px; }
+        .modal-image { width: 100%; max-height: 300px; object-fit: cover; border-radius: 6px; margin-bottom: 1.5rem; }
+        .modal-details { line-height: 1.6; }
+        .close-btn { color: white; font-size: 28px; font-weight: bold; transition: color 0.3s; }
+        .close-btn:hover, .close-btn:focus { color: var(--secondary-color); text-decoration: none; cursor: pointer; }
+        @media (max-width: 600px) {
+            .modal-content { margin: 20px auto; width: 95%; }
+            .modal-header h4 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-wrapper"><div class="loader"></div></div>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo"><img src="assets/images/logo.jpg" alt="logo"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-key="nav_home">Home</a></li>
+                    <li><a href="about.html" data-key="nav_about">About</a></li>
+                    <li><a href="gallery.html" data-key="nav_gallery">Gallery</a></li>
+                    <li><a href="events.html" class="active" data-key="nav_events">Events</a></li>
+                    <li><a href="fees.html" data-key="nav_fees">Fees</a></li>
+                    <li><a href="admission.html" data-key="nav_admission">Admission</a></li>
+                    <li><a href="Buses.html" data-key="nav_buses">Buses</a></li>
+                    <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-right">
+                <div class="lang-toggle" id="lang-toggle">
+                    <span class="lang-np">नेपा</span>
+                    <span class="lang-divider">|</span>
+                    <span class="lang-en active">EN</span>
+                </div>
+                <div class="hamburger">
+                    <div class="line1"></div><div class="line2"></div><div class="line3"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: var(--nav-height);">
+            <div class="container">
+                <h2 class="section-title" data-key="events_main_heading">Upcoming & Past Events</h2>
+                
+                <h3 class="reveal" style="color: var(--primary-color); margin-top: 3rem;" data-key="upcoming_events_title">Upcoming Events</h3>
+                
+                <div class="events-container reveal">
+                    <div class="event-card" 
+                        onclick="openModal(this)"
+                        data-key="event_1" 
+                        data-image="assets/images/3.jpg"> 
+                        <div class="event-date">
+                            <span class="day">25</span>
+                            <span class="month">NOV</span>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-tag" data-key="tag_academic">Academic</span>
+                            <h4 data-key="event_1_title">Annual Speech Competition</h4>
+                            <p data-key="event_1_short_desc">Watch our students showcase their oratory skills in the grand finale of the Annual Speech Competition.</p>
+                            <img src="assets/images/3.jpg" alt="Speech Event Thumbnail" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-top: 10px;">
+                            <br><span style="cursor: pointer;" class="event-tag" data-key="btn_view_details"><a href="javascript:void(0);">View Details -- <i class="fa-solid fa-arrow-right"></i></a></span>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card"
+                        onclick="openModal(this)"
+                        data-key="event_2"
+                        data-image="assets/images/3.jpg"> 
+                        <div class="event-date">
+                            <span class="day">18</span>
+                            <span class="month">DEC</span>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-tag" data-key="tag_sports">SPORTS</span>
+                            <h4 data-key="event_2_title">Annual Inter House Competition</h4>
+                            <p data-key="event_2_short_desc">Watch our students showcase their sports performance to enhance their physical growth also.</p>
+                            <img src="assets/images/3.jpg" alt="Sports Event Thumbnail" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-top: 10px;">
+                            <br><span style="cursor: pointer;" class="event-tag" data-key="btn_view_details"><a href="javascript:void(0);">View Details -- <i class="fa-solid fa-arrow-right"></i></a></span>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card"
+                        onclick="openModal(this)"
+                        data-key="event_3"
+                        data-image="assets/images/3.jpg"> 
+                        <div class="event-date">
+                            <span class="day">22</span>
+                            <span class="month">DEC</span>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-tag" data-key="tag_exhibition">Exhibition</span>
+                            <h4 data-key="event_3_title">Science & Art Exhibition</h4>
+                            <p data-key="event_3_short_desc">A display of the innovative projects and creative masterpieces by our talented students.</p>
+                            <img src="assets/images/3.jpg" alt="Exhibition Event Thumbnail" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-top: 10px;">
+                            <br><span style="cursor: pointer;" class="event-tag" data-key="btn_view_details"><a href="javascript:void(0);">View Details -- <i class="fa-solid fa-arrow-right"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="reveal" style="color: var(--primary-color); margin-top: 4rem;" data-key="past_events_title">Past Events</h3>
+                <div class="events-container reveal">
+                    <div class="event-card"
+                        onclick="openModal(this)"
+                        data-key="past_event_1"
+                        data-image="assets/images/3.jpg"> 
+                        <div class="event-date">
+                            <span class="day">10</span>
+                            <span class="month">NOV</span>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-tag" data-key="tag_celebration">Celebration</span>
+                            <h4 data-key="past_event_1_title">Annual Function 2025</h4>
+                            <p data-key="past_event_1_short_desc">A spectacular evening of music, dance, and drama celebrating our school's foundation day.</p>
+                            <img src="assets/images/3.jpg" alt="Annual Function Thumbnail" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-top: 10px;">
+                        </div>
+                    </div>
+                    
+                    <div class="event-card"
+                        onclick="openModal(this)"
+                        data-key="past_event_2"
+                        data-image="assets/images/event_past_sports.jpg"> 
+                        <div class="event-date">
+                            <span class="day">25</span>
+                            <span class="month">OCT</span>
+                        </div>
+                        <div class="event-details">
+                            <span class="event-tag" data-key="tag_sports">Sports</span>
+                            <h4 data-key="past_event_2_title">Inter-House Sports Day</h4>
+                            <p data-key="past_event_2_short_desc">An exciting day of friendly competition, teamwork, and athletic achievements on the field.</p>
+                            <img src="assets/images/slider_bg_1.jpg" alt="Past Sports Day Thumbnail" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px; margin-top: 10px;">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="eventModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 id="modal-title">Event Title</h4>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img id="modal-image" class="modal-image" src="assets/images/3.jpg" alt="Event Image">
+                <p>
+                    <span id="modal-date-tag" class="event-tag" style="margin-right: 10px;"></span>
+                    <span id="modal-tag" class="event-tag"></span>
+                </p>
+                <div id="modal-details" class="modal-details">Detailed description goes here.</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <a href="index.html" class="footer-logo"><img src="assets/images/logo.jpg" alt="logo"></a>
+            <p data-key="footer_address">Damak-03, Jhapa, Nepal | Est. 2055 B.S.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="footer-copyright">
+                <span data-key="footer_copyright_prefix">&copy; 2025 Oxford English School.</span>
+                <span data-key="dev_by">Developed By</span> <a class="laxmi" target="_blank" href="https://laxmiprasadrimal.com.np/">Laxmi Prasad Rimal</a> .
+            </p>
+        </div>
+    </footer>
+
+    <a class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+    <script src="script.js"></script>
+    
+    <script>
+let currentLang = localStorage.getItem('lang') || 'en';
+let translations = {}; // MUST BE GLOBAL
+
+// --- LANGUAGE TOGGLE & INITIAL SETUP ---
+document.addEventListener('DOMContentLoaded', () => {
+    const langToggle = document.getElementById('lang-toggle');
+    if (langToggle) {
+        // Highlight the current language
+        document.querySelectorAll('.lang-toggle span').forEach(span => {
+            span.classList.remove('active');
+        });
+        const activeSpan = document.querySelector(`.lang-${currentLang}`);
+        if (activeSpan) {
+            activeSpan.classList.add('active');
+        }
+
+        langToggle.addEventListener('click', () => {
+            currentLang = (currentLang === 'en') ? 'np' : 'en';
+            localStorage.setItem('lang', currentLang);
+            
+            // Re-fetch and re-translate immediately
+            loadTranslations(currentLang);
+            
+            // Update the visual toggle state
+            document.querySelectorAll('.lang-toggle span').forEach(span => {
+                span.classList.remove('active');
+            });
+            document.querySelector(`.lang-${currentLang}`).classList.add('active');
+        });
+    }
+
+    // Load initial translations when the page loads
+    loadTranslations(currentLang);
+    
+    // --- HAMBURGER MENU LOGIC ---
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('open');
+        });
+    }
+
+    // --- LOADER LOGIC ---
+    const loaderWrapper = document.querySelector('.loader-wrapper');
+    if (loaderWrapper) {
+        window.addEventListener('load', () => {
+            loaderWrapper.style.opacity = '0';
+            setTimeout(() => {
+                loaderWrapper.style.display = 'none';
+            }, 500);
+        });
+    }
+});
+
+// --- TRANSLATION CORE FUNCTIONS ---
+
+async function loadTranslations(lang) {
+    try {
+        const response = await fetch(`./lang/${lang}.json`);
+        translations = await response.json();
+        translatePage(translations);
+    } catch (error) {
+        console.error("Error loading translations:", error);
+    }
+}
+
+function translatePage(data) {
+    document.querySelectorAll('[data-key]').forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (data[key]) {
+            // Check if it's an image link button that needs special handling
+            if (element.tagName === 'A' && element.closest('.event-tag[data-key="btn_view_details"]')) {
+                 // Update text, but preserve the font-awesome icon
+                const icon = element.querySelector('i');
+                element.innerHTML = data[key];
+                if (icon) {
+                    element.appendChild(icon);
+                }
+            } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = data[key];
+            } else if (element.tagName === 'TITLE') {
+                document.title = data[key];
+            } else {
+                element.innerHTML = data[key];
+            }
+        }
+    });
+}
+
+// --- MODAL LOGIC (MOVED FROM events.html) ---
+
+/**
+ * Fills the modal with event data and displays it.
+ * It uses the data-key to pull the full title/details from the global 'translations' object.
+ * @param {HTMLElement} eventCard - The card element that was clicked.
+ */
+function openModal(eventCard) {
+    // Check if translations object is loaded
+    if (Object.keys(translations).length === 0) {
+        console.error("Translations not loaded yet. Cannot open modal.");
+        return; 
+    }
+
+    const modal = document.getElementById("eventModal");
+    if (!modal) return;
+
+    // Get the unique data-key for this specific event (e.g., event_1)
+    const eventKey = eventCard.getAttribute('data-key'); 
+    
+    // Get the modal keys from the global 'translations' object
+    // Example keys: event_1_title, event_1_details, tag_academic
+    const modalTitle = translations[`${eventKey}_title`];
+    const modalDetails = translations[`${eventKey}_details`];
+    
+    // Determine the tag key dynamically
+    let tagIdentifier = eventKey.replace(/event_|past_event_/, '');
+    // Handle specific cases like event_1 -> tag_1 (if 1 is not a tag)
+    if (tagIdentifier.match(/^\d+$/)) { 
+        // We need the tag itself, which is set as innerText in the HTML
+        tagIdentifier = eventCard.querySelector('.event-tag').getAttribute('data-key').replace('tag_', '');
+    }
+    const modalTag = translations[`tag_${tagIdentifier}`];
+    
+    // Get data attributes that remain non-translatable in HTML
+    const dayElement = eventCard.querySelector('.day');
+    const monthElement = eventCard.querySelector('.month');
+    
+    const day = dayElement ? dayElement.innerText : '';
+    const month = monthElement ? monthElement.innerText : '';
+    const imageSrc = eventCard.getAttribute('data-image');
+
+    // Populate modal content
+    document.getElementById('modal-title').innerText = modalTitle || "Error: Title Missing";
+    document.getElementById('modal-image').src = imageSrc;
+    
+    // Format Date and Tag
+    document.getElementById('modal-date-tag').innerText = `${day} ${month}`;
+    document.getElementById('modal-tag').innerText = modalTag || "Tag Missing";
+    
+    document.getElementById('modal-details').innerHTML = `<p>${modalDetails || "Error: Details Missing"}</p>`;
+
+    // Display the modal
+    modal.style.display = "block";
+}
+
+// Attach openModal globally so HTML can call it
+window.openModal = openModal;
+    </script>
+</body>
+</html>

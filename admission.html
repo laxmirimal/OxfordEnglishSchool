@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="admission_page_title">Admission | Oxford English School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* CSS for Admission Page Structure */
+        .form-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+            background: var(--light-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        .admission-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .admission-info ol, .admission-info ul {
+            padding-left: 20px;
+        }
+        .admission-info li {
+            margin-bottom: 0.5rem;
+        }
+        .admission-form {
+            background: var(--white-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+        .admission-form h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        .admission-form button {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .form-container {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-wrapper"><div class="loader"></div></div>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo"><img src="assets/images/logo.jpg" alt="logo"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-key="nav_home">Home</a></li>
+                    <li><a href="about.html" data-key="nav_about">About</a></li>
+                    <li><a href="gallery.html" data-key="nav_gallery">Gallery</a></li>
+                    <li><a href="events.html" data-key="nav_events">Events</a></li>
+                    <li><a href="fees.html" data-key="nav_fees">Fees</a></li>
+                    <li><a href="admission.html" class="active" data-key="nav_admission">Admission</a></li>
+                    <li><a href="Buses.html" data-key="nav_buses">Buses</a></li>
+                    <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="lang-toggle" id="lang-toggle">
+                <span class="lang-np">नेपा</span>
+                <span class="lang-divider">|</span>
+                <span class="lang-en active">EN</span>
+            </div>
+            <div class="hamburger">
+                <div class="line1"></div><div class="line2"></div><div class="line3"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: var(--nav-height);">
+            <div class="container">
+                <h2 class="section-title" data-key="admission_main_heading">Admissions 2026</h2>
+                
+                <div class="form-container reveal">
+                    <div class="admission-info">
+                        <h3 data-key="admission_info_title">Admission Process</h3>
+                        <p data-key="admission_info_intro">We welcome applications from students for classes Playgroup to Class X. Our admission process is designed to be transparent and straightforward.</p>
+                        
+                        <h4 style="margin-top: 1.5rem;" data-key="admission_steps_heading">Steps to Apply:</h4>
+                        <ol style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                            <li data-key="step_1">Fill out the online inquiry form (below, sent via WhatsApp).</li>
+                            <li data-key="step_2">Visit the school to collect the admission packet.</li>
+                            <li data-key="step_3">Submit the completed application form with documents.</li>
+                            <li data-key="step_4">Appear for a small entrance test (for Class I and above).</li>
+                            <li data-key="step_5">Interview with the student and parents.</li>
+                            <li data-key="step_6">Confirmation of admission and fee payment.</li>
+                        </ol>
+
+                        <h4 style="margin-top: 1.5rem;" data-key="admission_classes_heading">Available Classes:</h4>
+                        <ul style="margin-left: 1.5rem; list-style-type: disc;">
+                            <li data-key="class_pg">Playgroup (PG)</li>
+                            <li data-key="class_nursery_ukg">Nursery, LKG, UKG</li>
+                            <li data-key="class_1_10">Class I to Class X</li>
+                        </ul>
+                        <br>
+                        <a href="contact.html" class="btn btn-secondary" data-key="btn_contact_help">Contact for Help</a>
+                    </div>
+
+                    <div class="admission-form">
+                        <h3 data-key="admission_form_heading">Admission Inquiry Form</h3>
+                        <form id="admission-form">
+                            <div class="form-group">
+                                <label for="name" data-key="label_student_name">Student's Name*</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter student's full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="class" data-key="label_applying_class">Applying for Class*</label>
+                                <select id="class" name="class" required>
+                                    <option value="" data-key="select_class_default">Select Class</option>
+                                    <option value="Playgroup (PG)" data-key="class_pg_opt">Playgroup (PG)</option>
+                                    <option value="Nursery" data-key="class_nursery_opt">Nursery</option>
+                                    <option value="LKG" data-key="class_lkg_opt">LKG</option>
+                                    <option value="UKG" data-key="class_ukg_opt">UKG</option>
+                                    <option value="Class 1" data-key="class_1_opt">Class 1</option>
+                                    <option value="Class 2" data-key="class_2_opt">Class 2</option>
+                                    <option value="Class 3" data-key="class_3_opt">Class 3</option>
+                                    <option value="Class 4" data-key="class_4_opt">Class 4</option>
+                                    <option value="Class 5" data-key="class_5_opt">Class 5</option>
+                                    <option value="Class 6" data-key="class_6_opt">Class 6</option>
+                                    <option value="Class 7" data-key="class_7_opt">Class 7</option>
+                                    <option value="Class 8" data-key="class_8_opt">Class 8</option>
+                                    <option value="Class 9" data-key="class_9_opt">Class 9</option>
+                                    <option value="Class 10" data-key="class_10_opt">Class 10</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" data-key="label_parent_phone">Parent's Phone Number*</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="e.g., 98xxxxxxxx">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-key="label_parent_email">Parent's Email*</label>
+                                <input type="email" id="email" name="email" required placeholder="e.g., parent@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="message" data-key="label_your_message">Your Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Optional: Any specific questions?"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" onclick="sendToWhatsApp(event)" data-key="btn_submit_inquiry">Submit Inquiry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="index.html" class="footer-logo"><img src="assets/images/logo.jpg" alt="logo"></a>
+            <p data-key="footer_address">Damak-03, Jhapa, Nepal | Est. 2055 B.S.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="footer-copyright">
+                <span data-key="footer_copyright_prefix">&copy; 2025 Oxford English School.</span>
+                <span data-key="dev_by">Developed By</span> <a class="laxmi" target="_blank" href="https://laxmiprasadrimal.com.np/">Laxmi Prasad Rimal</a> .
+            </p>
+        </div>
+    </footer>
+
+    <a class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+    
+    <script src="script.js"></script>
+    <script>
+        // Note: The function is included below. In a real project, this logic belongs in script.js
+        // For demonstration, here is the function to be placed in script.js (if it's not already there)
+        window.sendToWhatsApp = function(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('admission-form');
+            if (!form.checkValidity()) {
+                return;
+            }
+            
+            const studentName = document.getElementById('name').value.trim();
+            const applyingClass = document.getElementById('class').value;
+            const parentPhone = document.getElementById('phone').value.trim();
+            const parentEmail = document.getElementById('email').value.trim();
+            const userMessage = document.getElementById('message').value.trim();
+            
+            const recipientNumber = '+9779804907539'; // School's WhatsApp number
+
+            let whatsappMessage = `*Admission Inquiry - Oxford School*\n\n`;
+            whatsappMessage += `*Student Name:* ${studentName}\n`;
+            whatsappMessage += `*Applying for Class:* ${applyingClass}\n`;
+            whatsappMessage += `*Parent Phone:* ${parentPhone}\n`;
+            whatsappMessage += `*Parent Email:* ${parentEmail}\n`;
+            if (userMessage) {
+                whatsappMessage += `*Message:* ${userMessage}\n`;
+            }
+            whatsappMessage += `\n(Sent from the school's website)`;
+
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappURL = `https://wa.me/${recipientNumber}?text=${encodedMessage}`;
+
+            window.open(whatsappURL, '_blank');
+        };
+    </script>
+</body>
+</html>

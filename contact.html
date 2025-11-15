@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="contact_page_title">Contact Us | Oxford English School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Define basic CSS variables (Assuming these are in style.css) */
+        :root {
+            --primary-color: #002147; /* Oxford Blue */
+            --secondary-color: #FDB813; /* Golden/Yellow */
+            --white-color: #dcedf9;
+            --light-bg: #f4f7fc;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --nav-height: 80px;
+        }
+
+        /* Ensure the body prevents overall horizontal scrolling (Fix for "overexceeding") */
+        body {
+            overflow-x: hidden; 
+        }
+
+        /* --- Contact Page Specific Styles --- */
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* Default: Two-column layout */
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto 3rem;
+            overflow-x: hidden;
+        }
+        
+        .contact-info {
+            background: var(--primary-color);
+            color: var(--white-color);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .contact-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info li i {
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            color: var(--secondary-color);
+            padding-top: 0.2rem;
+        }
+
+        .contact-info li a {
+            color: var(--white-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-info li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-links a {
+            color: var(--white-color);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .contact-form {
+            background: var(--light-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        .map-container {
+            width: 100%;
+            max-width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* --- Responsive Breakpoint --- */
+        @media (max-width: 900px) {
+            .contact-container {
+                grid-template-columns: 1fr; /* Stacks columns vertically */
+                gap: 1.5rem;
+            }
+            .contact-info, .contact-form {
+                padding: 2rem 1.5rem; 
+            }
+            .contact-info p {
+                font-size: 0.9rem;
+            }
+            .map-container {
+                height: 350px; /* Adjust height for mobile */
+            }
+        }
+        @media (max-width: 576px) {
+            .contact-info, .contact-form {
+                padding: 1.5rem 1rem;
+            }
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-wrapper"><div class="loader"></div></div>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo"><img src="assets/images/logo.jpg" alt="Oxford English School Logo"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-key="nav_home">Home</a></li>
+                    <li><a href="about.html" data-key="nav_about">About</a></li>
+                    <li><a href="gallery.html" data-key="nav_gallery">Gallery</a></li>
+                    <li><a href="events.html" data-key="nav_events">Events</a></li>
+                    <li><a href="fees.html" data-key="nav_fees">Fees</a></li>
+                    <li><a href="admission.html" data-key="nav_admission">Admission</a></li>
+                    <li><a href="Buses.html" data-key="nav_buses">Buses</a></li>
+                    <li><a href="contact.html"class="active" data-key="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="lang-toggle" id="lang-toggle">
+            <span class="lang-np">नेपा</span>
+            <span class="lang-divider">|</span>
+            <span class="lang-en active">EN</span>
+        </div>
+            <div class="hamburger">
+                <div class="line1"></div><div class="line2"></div><div class="line3"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: var(--nav-height);">
+            <div class="container">
+                <h2 class="section-title" data-key="contact_main_heading">Get In Touch</h2>
+                
+                <div class="contact-container reveal">
+                    <div class="contact-info">
+                        <h3 data-key="contact_info_heading">Contact Information</h3>
+                        <p data-key="contact_info_para">We are always here to help. Feel free to reach out to us with any questions or for more information about our school.</p>
+                        
+                        <ul>
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span data-key="contact_address">Damak-03, Jhapa, Nepal</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone-alt"></i>
+                                <span data-key="contact_phone"><a href="tel:9804907539">9804907539</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span data-key="contact_email"><a href="mailto:oxford2055@gmail.com">oxford2055@gmail.com</a></span>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span data-key="contact_hours">Sun - Fri: 9:00 AM - 4:00 PM</span>
+                            </li>
+                        </ul>
+
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3 data-key="contact_form_heading">Send Us a Message</h3>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="contact-name" data-key="contact_label_name">Your Name*</label>
+                                <input type="text" id="contact-name" name="name" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email" data-key="contact_label_email">Your Email*</label>
+                                <input type="email" id="contact-email" name="email" required placeholder="name@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-subject" data-key="contact_label_subject">Subject</label>
+                                <input type="text" id="contact-subject" name="subject" placeholder="e.g., Admission Inquiry">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message" data-key="contact_label_message">Your Message*</label>
+                                <textarea id="contact-message" name="message" rows="5" required placeholder="Type your detailed message here..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" data-key="contact_btn_submit" onclick="submitContactForm(event)">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="map-container reveal" style="margin-top: 3rem;">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=MMRF%2BQ8W,%20Damak%2057217&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Google Maps Location of Oxford English School (MMRF+Q8W)">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="index.html" class="footer-logo"><img src="assets/images/logo.jpg" alt="logo"></a>
+            <p data-key="footer_address">Damak-03, Jhapa, Nepal | Est. 2055 B.S.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="footer-copyright">
+                <span data-key="footer_copyright_prefix">© 2025 Oxford English School.</span>
+                <span data-key="dev_by">Developed By</span> <a class="laxmi" target="_blank" href="https://laxmiprasadrimal.com.np/">Laxmi Prasad Rimal</a> .
+            </p>
+        </div>
+    </footer>
+
+    <a class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+    
+    <script>
+        window.submitContactForm = function(event) {
+            event.preventDefault(); 
+
+            const form = document.getElementById('contact-form');
+            
+            if (!form.checkValidity()) {
+                return;
+            }
+            
+            const name = document.getElementById('contact-name').value.trim();
+            const email = document.getElementById('contact-email').value.trim();
+            const subject = document.getElementById('contact-subject').value.trim() || 'General Inquiry from Website';
+            const message = document.getElementById('contact-message').value.trim();
+            
+            const recipientEmail = 'oxford2055@gmail.com'; 
+
+            let emailBody = `Sender Name: ${name}\n`;
+            emailBody += `Sender Email: ${email}\n\n`;
+            emailBody += `Message:\n${message}\n\n`;
+            emailBody += `(Sent via Contact Form on the School Website)`;
+
+            const mailtoURL = `mailto:${recipientEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+
+            window.location.href = mailtoURL;
+
+            setTimeout(() => {
+                form.reset();
+                alert("Your email client is opening with the message ready to send. Please check your drafts or outgoing mail.");
+            }, 500);
+        };
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
