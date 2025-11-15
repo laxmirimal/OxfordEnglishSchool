@@ -3,9 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Oxford English School</title>
+    <title data-key="gallery_page_title">Gallery | Oxford English School</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Define basic CSS variables (Assuming these are in style.css) */
+        :root {
+            --primary-color: #002147; /* Oxford Blue */
+            --secondary-color: #FDB813; /* Golden/Yellow */
+            --white-color: #dcedf9;
+            --light-bg: #f4f7fc;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --nav-height: 80px;
+        }
+        
+        /* --- Gallery Specific Styles --- */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px; /* Uniform height for all images */
+            object-fit: cover; /* Ensures images fill the container without distortion */
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay i {
+            color: var(--white-color);
+            font-size: 2rem;
+        }
+        
+        /* Ensure the body prevents overall horizontal scrolling */
+        body {
+            overflow-x: hidden; 
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 600px) {
+            .gallery-grid {
+                grid-template-columns: 1fr; /* Single column stack on phones */
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -13,17 +97,17 @@
 
     <header>
         <div class="container navbar">
-            <a href="index.html" class="logo"><img src="assets/images/logo.jpg" alt="logo"></a>
+            <a href="index.html" class="logo"><img src="assets/images/logo.jpg" alt="Oxford English School Logo"></a>
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html" >Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="gallery.html"class="active">Gallery</a></li>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="fees.html">Fees</a></li>
-                    <li><a href="admission.html">Admission</a></li>
-                    <li><a href="Buses.html">Buses</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html" data-key="nav_home">Home</a></li>
+                    <li><a href="about.html" data-key="nav_about">About</a></li>
+                    <li><a href="gallery.html"class="active" data-key="nav_gallery">Gallery</a></li>
+                    <li><a href="events.html" data-key="nav_events">Events</a></li>
+                    <li><a href="fees.html" data-key="nav_fees">Fees</a></li>
+                    <li><a href="admission.html" data-key="nav_admission">Admission</a></li>
+                    <li><a href="Buses.html" data-key="nav_buses">Buses</a></li>
+                    <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
                 </ul>
             </nav>
             <div class="lang-toggle" id="lang-toggle">
@@ -40,47 +124,47 @@
     <main>
         <section class="section" style="padding-top: var(--nav-height);">
             <div class="container">
-                <h2 class="section-title">School Gallery</h2>
-                <p style="text-align: center; margin-bottom: 3rem;">A glimpse into our vibrant school life, events, and facilities.</p>
+                <h2 class="section-title" data-key="gallery_main_heading">School Gallery</h2>
+                <p style="text-align: center; margin-bottom: 3rem;" data-key="gallery_intro_para">A glimpse into our vibrant school life, events, and facilities.</p>
 
                 <div class="gallery-grid reveal">
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-key="gallery_img_1_alt">
                         <img src="assets/images/3.jpg" alt="School Annual Day">
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-key="gallery_img_2_alt">
                         <img src="assets/images/slider_bg_1.jpg" alt="School Sports Meet">
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-key="gallery_img_3_alt">
                         <img src="assets/images/3.jpg" alt="Digital Classroom">
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-key="gallery_img_4_alt">
                         <img src="assets/images/slider_bg_1.jpg" alt="School Library">
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-key="gallery_img_5_alt">
                         <img src="assets/images/3.jpg" alt="Science Lab">
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-key="gallery_img_6_alt">
                         <img src="assets/images/slider_bg_1.jpg" alt="Graduation Ceremony">
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-key="gallery_img_7_alt">
                         <img src="assets/images/3.jpg" alt="School Building">
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" data-key="gallery_img_8_alt">
                         <img src="assets/images/slider_bg_1.jpg" alt="Art Competition">
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item">
-                        <img src="assets/images/3.jpg" alt="Art Competition">
+                    <div class="gallery-item" data-key="gallery_img_9_alt">
+                        <img src="assets/images/3.jpg" alt="Computer Lab">
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                </div>
+                    </div>
             </div>
         </section>
     </main>
@@ -88,13 +172,16 @@
     <footer>
         <div class="footer-content">
             <a href="index.html" class="footer-logo"><img src="assets/images/logo.jpg" alt="logo"></a>
-            <p>Damak-03, Jhapa, Nepal | Est. 2055 B.S.</p>
+            <p data-key="footer_address">Damak-03, Jhapa, Nepal | Est. 2055 B.S.</p>
             <div class="footer-social">
                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
-            <p class="footer-copyright">&copy; 2025 Oxford English School.Developed By <a class="laxmi" target="_blank" href="https://laxmiprasadrimal.com.np/">Laxmi Prasad Rimal</a> .</p>
+            <p class="footer-copyright">
+                <span data-key="footer_copyright_prefix">&copy; 2025 Oxford English School.</span>
+                <span data-key="dev_by">Developed By</span> <a class="laxmi" target="_blank" href="https://laxmiprasadrimal.com.np/">Laxmi Prasad Rimal</a> .
+            </p>
         </div>
     </footer>
 
