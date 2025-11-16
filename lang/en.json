@@ -8,6 +8,7 @@
   "nav_admission": "Admission",
   "nav_buses": "Buses",
   "nav_contact": "Contact",
+   "nav_teachers": "Teachers",
   
   "hero_title": "Oxford English School",
   "hero_tagline": "Wisdom Is Divine (Est. 2055 B.S.)",
@@ -229,6 +230,7 @@
     "contact_label_subject": "Subject",
     "contact_label_message": "Your Message*",
     "contact_btn_submit": "Send Message",
+    
 
   
    
@@ -246,7 +248,29 @@
     "gallery_img_6_alt": "Graduation Ceremony",
     "gallery_img_7_alt": "School Building",
     "gallery_img_8_alt": "Art Competition",
-    "gallery_img_9_alt": "Computer Lab"
+    "gallery_img_9_alt": "Computer Lab",
+
+    "teachers_page_title": "Our Teachers & Staff | Oxford English School",
+    "teachers_main_heading": "Meet Our Team",
+    "teachers_intro_para": "Our dedicated faculty and staff are the backbone of the Oxford English School, guiding students towards excellence every day.",
+
+    "teacher_1_name": "Mr. Rajesh Thapa",
+    "teacher_1_title": "Principal & Mathematics Teacher",
+    "teacher_1_bio": "Over 20 years of experience in education. Dedicated to fostering a culture of academic rigor and holistic development.",
+    
+    "teacher_2_name": "Ms. Sarala Rai",
+    "teacher_2_title": "Vice Principal & English Department Head",
+    "teacher_2_bio": "Specializes in modern literature and language arts. Leads the school's creative writing programs.",
+    
+    "teacher_3_name": "Mrs. Pooja Sharma",
+    "teacher_3_title": "Primary Level Coordinator (Class 1-5)",
+    "teacher_3_bio": "Passionate about early childhood education and creating engaging learning environments for young students.",
+    
+    "teacher_4_name": "Mr. Bimal Adhikari",
+    "teacher_4_title": "Senior Science Instructor",
+    "teacher_4_bio": "Holds a Master's degree in Physics. Runs the popular Science Club and leads the annual science exhibition."
+
+   
 
 
     

@@ -18,7 +18,7 @@
             --nav-height: 80px;
         }
 
-        /* Ensure the body prevents overall horizontal scrolling (Fix for "overexceeding") */
+        /* Ensure the body prevents overall horizontal scrolling */
         body {
             overflow-x: hidden; 
         }
@@ -31,7 +31,7 @@
             gap: 2.5rem;
             max-width: 1100px;
             margin: 0 auto 3rem;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Added to help contain internal elements */
         }
         
         .contact-info {
@@ -133,7 +133,7 @@
 
         .map-container {
             width: 100%;
-            max-width: 100%;
+            max-width: 100%; /* Important for responsiveness */
             height: 450px;
             overflow: hidden;
             border-radius: 12px;
@@ -166,6 +166,7 @@
             .contact-info, .contact-form {
                 padding: 1.5rem 1rem;
             }
+            /* Add padding to the container itself to keep content off the edges */
             .container {
                 padding: 0 1rem;
             }
@@ -188,6 +189,7 @@
                     <li><a href="fees.html" data-key="nav_fees">Fees</a></li>
                     <li><a href="admission.html" data-key="nav_admission">Admission</a></li>
                     <li><a href="Buses.html" data-key="nav_buses">Buses</a></li>
+                    <li><a href="Teachers.html" data-key="nav_teachers">Teachers</a></li>
                     <li><a href="contact.html"class="active" data-key="nav_contact">Contact</a></li>
                 </ul>
             </nav>
@@ -264,14 +266,14 @@
 
                 <div class="map-container reveal" style="margin-top: 3rem;">
                     <iframe 
-                        src="https://maps.google.com/maps?q=MMRF%2BQ8W,%20Damak%2057217&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3567.89311314619!2d87.65349277537652!3d26.69747287679093!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef87b322a4c14b%3a0xc665b169b1782255!2sOxford%20English%20School!5e0!3m2!1sen!2snp!4v1709289230553!5m2!1sen!2snp"
                         width="600" 
                         height="450" 
                         style="border:0;" 
                         allowfullscreen="" 
                         loading="lazy" 
                         referrerpolicy="no-referrer-when-downgrade"
-                        title="Google Maps Location of Oxford English School (MMRF+Q8W)">
+                        title="Google Maps Location of Oxford English School">
                     </iframe>
                 </div>
             </div>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="teachers_page_title">Our Teachers & Staff | Oxford English School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Define basic CSS variables (Assuming these are in style.css) */
+        :root {
+            --primary-color: #002147; /* Oxford Blue */
+            --secondary-color: #FDB813; /* Golden/Yellow */
+            --white-color: #dcedf9;
+            --light-bg: #f4f7fc;
+            --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --nav-height: 80px;
+        }
+
+        /* Ensure the body prevents overall horizontal scrolling */
+        body {
+            overflow-x: hidden; 
+        }
+
+        /* --- Teacher Card Specific Styles --- */
+
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 15px;
+        }
+
+        .teacher-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .teacher-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .teacher-details {
+            padding: 1.5rem 1rem;
+        }
+
+        .teacher-details h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.2rem;
+            font-size: 1.2rem;
+        }
+
+        .teacher-details p {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .teacher-details .bio {
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+        
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 600px) {
+            .teachers-grid {
+                grid-template-columns: 1fr; /* Single column stack on phones */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loader-wrapper"><div class="loader"></div></div>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo"><img src="assets/images/logo.jpg" alt="logo"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" data-key="nav_home">Home</a></li>
+                    <li><a href="about.html" data-key="nav_about">About</a></li>
+                    <li><a href="gallery.html" data-key="nav_gallery">Gallery</a></li>
+                    <li><a href="events.html" data-key="nav_events">Events</a></li>
+                    <li><a href="fees.html" data-key="nav_fees">Fees</a></li>
+                    <li><a href="admission.html" data-key="nav_admission">Admission</a></li>
+                    <li><a href="Buses.html" data-key="nav_buses">Buses</a></li>
+                    <li><a href="Teachers.html" data-key="nav_teachers">Teachers</a></li>
+                    <li><a href="contact.html" data-key="nav_contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="lang-toggle" id="lang-toggle">
+            <span class="lang-np">नेपा</span>
+            <span class="lang-divider">|</span>
+            <span class="lang-en active">EN</span>
+        </div>
+            <div class="hamburger">
+                <div class="line1"></div><div class="line2"></div><div class="line3"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: var(--nav-height);">
+            <div class="container">
+                <h2 class="section-title" data-key="teachers_main_heading">Meet Our Team</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem;" data-key="teachers_intro_para">
+                    Our dedicated faculty and staff are the backbone of the Oxford English School, guiding students towards excellence every day.
+                </p>
+
+                <div class="teachers-grid reveal">
+                    
+                    <div class="teacher-card">
+                        <img src="assets/images/placeholder_teacher_1.jpg" alt="Principal's Photo">
+                        <div class="teacher-details">
+                            <h4 data-key="teacher_1_name">Mr. Rajesh Thapa</h4>
+                            <p data-key="teacher_1_title">Principal & Mathematics Teacher</p>
+                            <div class="bio" data-key="teacher_1_bio">Over 20 years of experience in education. Dedicated to fostering a culture of academic rigor and holistic development.</div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <img src="assets/images/placeholder_teacher_2.jpg" alt="Vice Principal's Photo">
+                        <div class="teacher-details">
+                            <h4 data-key="teacher_2_name">Ms. Sarala Rai</h4>
+                            <p data-key="teacher_2_title">Vice Principal & English Department Head</p>
+                            <div class="bio" data-key="teacher_2_bio">Specializes in modern literature and language arts. Leads the school's creative writing programs.</div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <img src="assets/images/placeholder_teacher_3.jpg" alt="Primary Teacher's Photo">
+                        <div class="teacher-details">
+                            <h4 data-key="teacher_3_name">Mrs. Pooja Sharma</h4>
+                            <p data-key="teacher_3_title">Primary Level Coordinator (Class 1-5)</p>
+                            <div class="bio" data-key="teacher_3_bio">Passionate about early childhood education and creating engaging learning environments for young students.</div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <img src="assets/images/placeholder_teacher_4.jpg" alt="Science Teacher's Photo">
+                        <div class="teacher-details">
+                            <h4 data-key="teacher_4_name">Mr. Bimal Adhikari</h4>
+                            <p data-key="teacher_4_title">Senior Science Instructor</p>
+                            <div class="bio" data-key="teacher_4_bio">Holds a Master's degree in Physics. Runs the popular Science Club and leads the annual science exhibition.</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="index.html" class="footer-logo"><img src="assets/images/logo.jpg" alt="logo"></a>
+            <p data-key="footer_address">Damak-03, Jhapa, Nepal | Est. 2055 B.S.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p class="footer-copyright">
+                <span data-key="footer_copyright_prefix">© 2025 Oxford English School.</span>
+                <span data-key="dev_by">Developed By</span> <a class="laxmi" target="_blank" href="https://laxmiprasadrimal.com.np/">Laxmi Prasad Rimal</a> .
+            </p>
+        </div>
+    </footer>
+
+    <a class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
+    <script src="script.js"></script>
+</body>
+</html>
