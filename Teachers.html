@@ -10,21 +10,19 @@
     <style>
         /* Define basic CSS variables (Assuming these are in style.css) */
         :root {
-            --primary-color: #002147; /* Oxford Blue */
-            --secondary-color: #FDB813; /* Golden/Yellow */
+            --primary-color: #002147;
+            --secondary-color: #FDB813;
             --white-color: #dcedf9;
             --light-bg: #f4f7fc;
             --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             --nav-height: 80px;
         }
 
-        /* Ensure the body prevents overall horizontal scrolling */
         body {
             overflow-x: hidden; 
         }
 
         /* --- Teacher Card Specific Styles --- */
-
         .teachers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -78,10 +76,9 @@
             margin-bottom: 0;
         }
         
-        /* Responsive adjustments for smaller screens */
         @media (max-width: 600px) {
             .teachers-grid {
-                grid-template-columns: 1fr; /* Single column stack on phones */
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -128,38 +125,82 @@
                 <div class="teachers-grid reveal">
                     
                     <div class="teacher-card">
-                        <img src="assets/images/placeholder_teacher_1.jpg" alt="Principal's Photo">
+                        <img src="assets/images/principal.jpg" alt="Ganga Dev Choudhari Photo">
                         <div class="teacher-details">
-                            <h4 data-key="teacher_1_name">Mr. Rajesh Thapa</h4>
-                            <p data-key="teacher_1_title">Principal & Mathematics Teacher</p>
-                            <div class="bio" data-key="teacher_1_bio">Over 20 years of experience in education. Dedicated to fostering a culture of academic rigor and holistic development.</div>
+                            <h4 data-key="teacher_1_name">Ganga Dev Choudhari</h4>
+                            <p data-key="teacher_1_title">Principal & OPT.Math Teacher</p>
+                            <div class="bio" data-key="teacher_1_bio">Leads the school with a vision for academic excellence and specializes in Optional Mathematics instruction.</div>
                         </div>
                     </div>
 
                     <div class="teacher-card">
-                        <img src="assets/images/placeholder_teacher_2.jpg" alt="Vice Principal's Photo">
+                        <img src="assets/images/founder1.jpg" alt="Dilli Prasad Chapagain Photo">
                         <div class="teacher-details">
-                            <h4 data-key="teacher_2_name">Ms. Sarala Rai</h4>
-                            <p data-key="teacher_2_title">Vice Principal & English Department Head</p>
-                            <div class="bio" data-key="teacher_2_bio">Specializes in modern literature and language arts. Leads the school's creative writing programs.</div>
+                            <h4 data-key="teacher_2_name">Dilli Prasad Chapagain</h4>
+                            <p data-key="teacher_2_title">Founder & COMP.Math Teacher</p>
+                            <div class="bio" data-key="teacher_2_bio">As a founder, he guides the school's long-term strategy and teaches Compulsory Mathematics.</div>
                         </div>
                     </div>
 
                     <div class="teacher-card">
-                        <img src="assets/images/placeholder_teacher_3.jpg" alt="Primary Teacher's Photo">
+                        <img src="assets/images/founder2.jpg" alt="Kashi Khati Photo">
                         <div class="teacher-details">
-                            <h4 data-key="teacher_3_name">Mrs. Pooja Sharma</h4>
-                            <p data-key="teacher_3_title">Primary Level Coordinator (Class 1-5)</p>
-                            <div class="bio" data-key="teacher_3_bio">Passionate about early childhood education and creating engaging learning environments for young students.</div>
+                            <h4 data-key="teacher_3_name">Kashi Khati</h4>
+                            <p data-key="teacher_3_title">Founder</p>
+                            <div class="bio" data-key="teacher_3_bio">A founding member dedicated to establishing the core values and foundation of the school.</div>
                         </div>
                     </div>
 
                     <div class="teacher-card">
-                        <img src="assets/images/placeholder_teacher_4.jpg" alt="Science Teacher's Photo">
+                        <img src="assets/images/accountant.jpg" alt="Ganesh Acharya Photo">
                         <div class="teacher-details">
-                            <h4 data-key="teacher_4_name">Mr. Bimal Adhikari</h4>
-                            <p data-key="teacher_4_title">Senior Science Instructor</p>
-                            <div class="bio" data-key="teacher_4_bio">Holds a Master's degree in Physics. Runs the popular Science Club and leads the annual science exhibition.</div>
+                            <h4 data-key="teacher_4_name">Ganesh Acharya</h4>
+                            <p data-key="teacher_4_title">Accountant</p>
+                            <div class="bio" data-key="teacher_4_bio">Manages the school's financial health, ensuring transparent and accurate accounting practices.</div>
+                        </div>
+                    </div>
+
+                    <div class="teacher-card">
+                        <img src="assets/images/scienceteacher.jpg" alt="Bijay Baral Photo">
+                        <div class="teacher-details">
+                            <h4 data-key="teacher_5_name">Bijay Baral</h4>
+                            <p data-key="teacher_5_title">Science Teacher and Lab Assistant</p>
+                            <div class="bio" data-key="teacher_5_bio">Teaches practical science and manages the lab, fostering hands-on learning among students.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="teacher-card">
+                        <img src="assets/images/englishteacher.jpg" alt="Sujan Godar Thapa Photo">
+                        <div class="teacher-details">
+                            <h4 data-key="teacher_6_name">Sujan Godar Thapa</h4>
+                            <p data-key="teacher_6_title">English and Social Teacher</p>
+                            <div class="bio" data-key="teacher_6_bio">Engages students in English language arts and social studies, promoting critical thinking and cultural awareness.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="teacher-card">
+                        <img src="assets/images/chesscouch.jpg" alt="Rajan Subedi Photo">
+                        <div class="teacher-details">
+                            <h4 data-key="teacher_7_name">Rajan Subedi</h4>
+                            <p data-key="teacher_7_title">Chess Coach</p>
+                            <div class="bio" data-key="teacher_7_bio">Develops strategic thinking through chess, mentoring the school's chess teams for competitions.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="teacher-card">
+                        <img src="assets/images/nepali teacher.jpg" alt="Raju Chapagain Photo">
+                        <div class="teacher-details">
+                            <h4 data-key="teacher_8_name">Raju Chapagain</h4>
+                            <p data-key="teacher_8_title">Nepali Teacher & ECA Head</p>
+                            <div class="bio" data-key="teacher_8_bio">Teaches Nepali language and literature while coordinating all Extra-Curricular Activities (ECA).</div>
+                        </div>
+                    </div>
+                    <div class="teacher-card">
+                        <img src="assets/images/ecnomics teacher.jpg" alt="Gokul Kafle Photo">
+                        <div class="teacher-details">
+                            <h4 data-key="teacher_9_name">Gokul Kafle</h4>
+                            <p data-key="teacher_9_title">Economics Teacher</p>
+                            <div class="bio" data-key="teacher_9_bio">Specializes in macro and microeconomics, preparing students for higher studies in commerce and business.</div>
                         </div>
                     </div>
 
@@ -173,7 +214,7 @@
             <a href="index.html" class="footer-logo"><img src="assets/images/logo.jpg" alt="logo"></a>
             <p data-key="footer_address">Damak-03, Jhapa, Nepal | Est. 2055 B.S.</p>
             <div class="footer-social">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/OxfordESS" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>

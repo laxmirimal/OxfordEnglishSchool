@@ -250,30 +250,47 @@
     "gallery_img_8_alt": "Art Competition",
     "gallery_img_9_alt": "Computer Lab",
 
+
     "teachers_page_title": "Our Teachers & Staff | Oxford English School",
     "teachers_main_heading": "Meet Our Team",
     "teachers_intro_para": "Our dedicated faculty and staff are the backbone of the Oxford English School, guiding students towards excellence every day.",
 
-    "teacher_1_name": "Mr. Rajesh Thapa",
-    "teacher_1_title": "Principal & Mathematics Teacher",
-    "teacher_1_bio": "Over 20 years of experience in education. Dedicated to fostering a culture of academic rigor and holistic development.",
+    "teacher_1_name": "Ganga Dev Choudhari",
+    "teacher_1_title": "Principal & OPT.Math Teacher",
+    "teacher_1_bio": "Leads the school with a vision for academic excellence and specializes in Optional Mathematics instruction.",
     
-    "teacher_2_name": "Ms. Sarala Rai",
-    "teacher_2_title": "Vice Principal & English Department Head",
-    "teacher_2_bio": "Specializes in modern literature and language arts. Leads the school's creative writing programs.",
+    "teacher_2_name": "Dilli Prasad Chapagain",
+    "teacher_2_title": "Founder & COMP.Math Teacher",
+    "teacher_2_bio": "As a founder, he guides the school's long-term strategy and teaches Compulsory Mathematics.",
     
-    "teacher_3_name": "Mrs. Pooja Sharma",
-    "teacher_3_title": "Primary Level Coordinator (Class 1-5)",
-    "teacher_3_bio": "Passionate about early childhood education and creating engaging learning environments for young students.",
+    "teacher_3_name": "Kashi Khati",
+    "teacher_3_title": "Founder",
+    "teacher_3_bio": "A founding member dedicated to establishing the core values and foundation of the school.",
     
-    "teacher_4_name": "Mr. Bimal Adhikari",
-    "teacher_4_title": "Senior Science Instructor",
-    "teacher_4_bio": "Holds a Master's degree in Physics. Runs the popular Science Club and leads the annual science exhibition."
+    "teacher_4_name": "Ganesh Acharya",
+    "teacher_4_title": "Accountant",
+    "teacher_4_bio": "Manages the school's financial health, ensuring transparent and accurate accounting practices.",
+    
+    "teacher_5_name": "Bijay Baral",
+    "teacher_5_title": "Science Teacher and Lab Assistant",
+    "teacher_5_bio": "Teaches practical science and manages the lab, fostering hands-on learning among students.",
+    
+    "teacher_6_name": "Sujan Godar Thapa",
+    "teacher_6_title": "English and Social Teacher",
+    "teacher_6_bio": "Engages students in English language arts and social studies, promoting critical thinking and cultural awareness.",
 
-   
-
-
+    "teacher_7_name": "Rajan Subedi",
+    "teacher_7_title": "Chess Coach",
+    "teacher_7_bio": "Develops strategic thinking through chess, mentoring the school's chess teams for competitions.",
     
+    "teacher_8_name": "Raju Chapagain",
+    "teacher_8_title": "Nepali Teacher & ECA Head",
+    "teacher_8_bio": "Teaches Nepali language and literature while coordinating all Extra-Curricular Activities (ECA).",
+
+    "teacher_9_name": "Gokul Kafle",
+    "teacher_9_title": "Economics Teacher",
+    "teacher_9_bio": "Specializes in macro and microeconomics, preparing students for higher studies in commerce and business."
+
 
 
 

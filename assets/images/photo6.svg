@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-    <defs>
-      <linearGradient id="g6" x1="0" x2="1"><stop offset="0" stop-color="#0b3d91"/><stop offset="1" stop-color="#f6c700"/></linearGradient>
-    </defs>
-    <rect width="1200" height="800" fill="url(#g6)" />
-    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Poppins, sans-serif" font-size="64" fill="#fff">Image 6</text>
-    </svg>
