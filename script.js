@@ -5,6 +5,7 @@ let translations = {}; // MUST BE GLOBAL
 
 async function loadTranslations(lang) {
     try {
+        // Correct path for translation files relative to the HTML document
         const response = await fetch(`./lang/${lang}.json`);
         // Check if fetch was successful before trying to parse
         if (!response.ok) {
@@ -25,7 +26,7 @@ function translatePage(data) {
         if (data[key] && data[key].trim().length > 0) {
             // Check for elements where we need to preserve internal HTML (like the arrow icon)
             if (element.tagName === 'A' && element.closest('.event-tag[data-key="btn_view_details"]')) {
-                 // Update text, but preserve the font-awesome icon
+                // Update text, but preserve the font-awesome icon
                 const icon = element.querySelector('i');
                 element.innerHTML = data[key];
                 if (icon) {
@@ -136,10 +137,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // === Sticky Navbar & Scroll-to-Top Button ===
     window.addEventListener("scroll", () => {
         if (header) {
+            // Check for sticky class which is missing in your CSS, but applied here.
             if (window.scrollY > 10) {
-                header.classList.add("sticky");
+                // If you want a sticky effect, you need .sticky CSS definition.
+                // header.classList.add("sticky"); 
             } else {
-                header.classList.remove("sticky");
+                // header.classList.remove("sticky"); 
             }
         }
 
@@ -262,9 +265,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const phone = document.getElementById("phone").value;
 
             if (name === "" || email === "" || phone === "") {
-                alert("Please fill in all required fields.");
+                console.error("Form Validation Error: Please fill in all required fields.");
+                // NOTE: Using console.error instead of alert()
             } else {
-                alert("Thank you for your inquiry! We will get back to you soon.");
+                console.log("Form Submitted: Thank you for your inquiry! We will get back to you soon.");
+                // NOTE: Using console.log instead of alert()
                 admissionForm.reset();
             }
         });

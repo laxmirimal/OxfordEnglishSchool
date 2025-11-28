@@ -6,23 +6,21 @@
     <title data-key="gallery_page_title">Gallery | Oxford English School</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"> 
     <link rel="manifest" href="/site.webmanifest">
     <style>
-        /* Define basic CSS variables (Assuming these are in style.css) */
+        /* BASE CSS */
         :root {
-            --primary-color: #002147; /* Oxford Blue */
-            --secondary-color: #FDB813; /* Golden/Yellow */
+            --primary-color: #002147;
+            --secondary-color: #FDB813;
             --white-color: #dcedf9;
             --light-bg: #f4f7fc;
             --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             --nav-height: 80px;
         }
         
-        /* --- Gallery Specific Styles --- */
-
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -46,17 +44,50 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .gallery-item img {
+        /* --- NEW CSS FOR BACKGROUND IMAGES --- */
+        .gallery-item .image-bg {
             width: 100%;
-            height: 250px; /* Uniform height for all images */
-            object-fit: cover; /* Ensures images fill the container without distortion */
-            display: block;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
             transition: transform 0.5s ease;
         }
-        
-        .gallery-item:hover img {
+
+        .gallery-item:hover .image-bg {
             transform: scale(1.05);
         }
+
+        /* --- PATHS DEFINED IN CSS --- */
+
+        /* Using the relative path: assets/images/imageX.jpg */
+        .gallery-item.item-1 .image-bg {
+            background-image: url('assets/images/image1.jpg');
+        }
+        .gallery-item.item-2 .image-bg {
+            background-image: url('assets/images/image2.jpg');
+        }
+        .gallery-item.item-3 .image-bg {
+            background-image: url('assets/images/image3.jpg');
+        }
+        .gallery-item.item-4 .image-bg {
+            background-image: url('assets/images/image4.jpg');
+        }
+        .gallery-item.item-5 .image-bg {
+            background-image: url('assets/images/image5.jpg');
+        }
+        .gallery-item.item-6 .image-bg {
+            background-image: url('assets/images/image6.jpg');
+        }
+        .gallery-item.item-7 .image-bg {
+            background-image: url('assets/images/image7.jpg');
+        }
+        .gallery-item.item-8 .image-bg {
+            background-image: url('assets/images/image8.jpg');
+        }
+        .gallery-item.item-9 .image-bg {
+            background-image: url('assets/images/image9.jpg');
+        }
+        /* --- END PATHS DEFINED IN CSS --- */
 
         .overlay {
             position: absolute;
@@ -81,15 +112,13 @@
             font-size: 2rem;
         }
         
-        /* Ensure the body prevents overall horizontal scrolling */
         body {
             overflow-x: hidden; 
         }
 
-        /* Responsive adjustments for smaller screens */
         @media (max-width: 600px) {
             .gallery-grid {
-                grid-template-columns: 1fr; /* Single column stack on phones */
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -115,10 +144,10 @@
                 </ul>
             </nav>
             <div class="lang-toggle" id="lang-toggle">
-            <span class="lang-np">नेपा</span>
-            <span class="lang-divider">|</span>
-            <span class="lang-en active">EN</span>
-        </div>
+                <span class="lang-np">नेपा</span>
+                <span class="lang-divider">|</span>
+                <span class="lang-en active">EN</span>
+            </div>
             <div class="hamburger">
                 <div class="line1"></div><div class="line2"></div><div class="line3"></div>
             </div>
@@ -132,43 +161,45 @@
                 <p style="text-align: center; margin-bottom: 3rem;" data-key="gallery_intro_para">A glimpse into our vibrant school life, events, and facilities.</p>
 
                 <div class="gallery-grid reveal">
-                    <div class="gallery-item" data-key="gallery_img_1_alt">
-                        <img src="assets/images/3.jpg" alt="School Annual Day">
+                    
+                    <div class="gallery-item item-1" data-key="gallery_img_1_alt">
+                        <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item" data-key="gallery_img_2_alt">
-                        <img src="assets/images/slider_bg_1.jpg" alt="School Sports Meet">
+                    <div class="gallery-item item-2" data-key="gallery_img_2_alt">
+                        <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item" data-key="gallery_img_3_alt">
-                        <img src="assets/images/3.jpg" alt="Digital Classroom">
+                    <div class="gallery-item item-3" data-key="gallery_img_3_alt">
+                        <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item" data-key="gallery_img_4_alt">
-                        <img src="assets/images/slider_bg_1.jpg" alt="School Library">
+                    <div class="gallery-item item-4" data-key="gallery_img_4_alt">
+                        <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item" data-key="gallery_img_5_alt">
-                        <img src="assets/images/3.jpg" alt="Science Lab">
+                    <div class="gallery-item item-5" data-key="gallery_img_5_alt">
+                        <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item" data-key="gallery_img_6_alt">
-                        <img src="assets/images/slider_bg_1.jpg" alt="Graduation Ceremony">
+                    <div class="gallery-item item-6" data-key="gallery_img_6_alt">
+                        <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item" data-key="gallery_img_7_alt">
-                        <img src="assets/images/3.jpg" alt="School Building">
+                    <div class="gallery-item item-7" data-key="gallery_img_7_alt">
+                        <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item" data-key="gallery_img_8_alt">
-                        <img src="assets/images/slider_bg_1.jpg" alt="Art Competition">
+                    <div class="gallery-item item-8" data-key="gallery_img_8_alt">
+                        <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item" data-key="gallery_img_9_alt">
-                        <img src="assets/images/3.jpg" alt="Computer Lab">
+                    <div class="gallery-item item-9" data-key="gallery_img_9_alt">
+                        <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    </div>
+
+                </div>
             </div>
         </section>
     </main>

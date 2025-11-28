@@ -10,7 +10,7 @@
     --text-color: #333;
     --light-bg: #f4f7fc;
     --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    --nav-height: 70px;
+    --nav-height: 70px; /* Adjusted to 70px for better alignment with logo/header height */
 }
 
 /* ==== Global Styles & Reset ==== */
@@ -34,6 +34,8 @@ body {
 a {
     text-decoration: none;
     color: var(--primary-color);
+    /* ADD: Focus state for accessibility */
+    transition: color 0.3s ease;
 }
 
 ul {
@@ -44,6 +46,8 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    /* ADD: Object-fit for consistent scaling */
+    object-fit: cover; 
 }
 
 h1, h2, h3, h4 {
@@ -70,10 +74,22 @@ h1, h2, h3, h4 {
     padding: 15px;
 }
  
+/* Simple underline for titles */
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--secondary-color);
+    border-radius: 2px;
+}
 
 header .navbar .logo img {
-
-    height: 80px; 
+    /* ADJUSTED: Align with header height (80px) */
+    height: 70px; 
     width: auto; 
     vertical-align: middle; 
 }
@@ -98,6 +114,11 @@ header .navbar .logo img {
     transition: background 0.3s ease;
     font-weight: 600;
     font-size: 0.9rem;
+    /* ADD: Focus state */
+    outline: none; 
+}
+.lang-toggle:focus {
+     box-shadow: 0 0 0 3px rgba(0, 33, 71, 0.3);
 }
 
 .lang-toggle:hover {
@@ -119,38 +140,6 @@ header .navbar .logo img {
 }
 
 
-/* ==== Update Responsive Design ==== */
-/* Find your existing @media (max-width: 768px) block */
-/* and ADD these new rules inside it */
-
-@media (max-width: 768px) {
-    /* ... (all your existing mobile styles) ... */
-
-    /* ADD THIS */
-    .nav-right {
-        gap: 1rem; /* Smaller gap on mobile */
-    }
-
-    /* ADD THIS */
-    .lang-toggle {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.8rem;
-    }
-}
-
-/* Simple underline for titles */
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--secondary-color);
-    border-radius: 2px;
-}
-
 /* ==== Preloader ==== */
 .loader-wrapper {
     position: fixed;
@@ -163,7 +152,8 @@ header .navbar .logo img {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.5s ease;
+    /* ADJUSTED: Slightly faster transition */
+    transition: opacity 0.3s ease; 
 }
 
 .loader {
@@ -229,6 +219,11 @@ header.sticky {
     padding: 0.5rem 0;
     position: relative;
     transition: color 0.3s ease;
+    /* ADD: Focus state */
+    outline: none; 
+}
+.nav-links li a:focus {
+    color: var(--primary-color);
 }
 
 /* Animated hover for nav links */
@@ -244,7 +239,9 @@ header.sticky {
 }
 
 .nav-links li a:hover::after,
-.nav-links li a.active::after {
+.nav-links li a.active::after,
+/* ADD: Focus state animation trigger */
+.nav-links li a:focus::after { 
     width: 100%;
 }
 
@@ -261,18 +258,6 @@ header.sticky {
 }
 
 /* ==== Hero Section (Home Page) ==== */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white-color);
-    position: relative;
-    overflow: hidden;
-}
-
-
 .hero {
     position: relative; 
     height: 100vh; 
@@ -293,6 +278,7 @@ header.sticky {
     left: 0;
     width: 100%;
     height: 100%;
+    /* Assuming path is correct relative to the CSS file's location */
     background: url("assets/images/slider_bg_1.jpg") no-repeat center center;
     background-size: cover; 
     background-attachment: scroll; 
@@ -300,9 +286,6 @@ header.sticky {
     background-blend-mode: multiply; 
     z-index: -1;
 }
-
-
-
 
 @keyframes fadeIn { 
     from { opacity: 0; transform: translateY(20px); }
@@ -315,42 +298,7 @@ header.sticky {
     z-index: 10; 
 }
 
-@media (max-width: 768px) {
-    
-    .hero {
-      
-        height: 60vh; 
-       
-        min-height: 400px; 
-     
-        display: block; 
-        padding-top: 5rem; 
-        padding-bottom: 2rem;
-    }
-    
- 
-    .hero-content h1 {
-      
-        font-size: 2.2rem; 
-        line-height: 1.2;
-    }
-
-    .hero-content p {
-    
-        font-size: 1rem; 
-        margin-top: 0.5rem;
-        margin-bottom: 1.5rem;
-    }
-    .hero-content {
-        text-align: center;
-      
-        padding: 0 1rem;
-    }
-    
-
-}
-.laxmi
-{
+.laxmi {
     color: var(--secondary-color);
 }
 .hero h1 {
@@ -375,6 +323,13 @@ header.sticky {
     transition: all 0.3s ease;
     border: none;
     cursor: pointer;
+    /* ADD: Focus state */
+    outline: none; 
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 3px rgba(253, 184, 19, 0.5);
+    transform: translateY(-3px);
 }
 
 .btn-primary {
@@ -460,9 +415,12 @@ header.sticky {
     border-radius: 10px;
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* ADD: Focus state */
+    outline: none; 
 }
 
-.feature-card:hover {
+.feature-card:hover,
+.feature-card:focus {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
@@ -486,8 +444,15 @@ header.sticky {
     border-radius: 10px;
     box-shadow: var(--card-shadow);
     cursor: pointer;
+    /* ADD: Focus state for keyboard navigation */
+    outline: none; 
+}
+.gallery-item:focus {
+     box-shadow: 0 0 0 4px var(--secondary-color);
 }
 
+
+/* NOTE: If you are using CSS backgrounds, remove the below img block */
 .gallery-item img {
     width: 100%;
     height: 100%;
@@ -498,6 +463,8 @@ header.sticky {
 .gallery-item:hover img {
     transform: scale(1.1);
 }
+/* END NOTE */
+
 
 .gallery-item .overlay {
     position: absolute;
@@ -533,9 +500,12 @@ header.sticky {
     box-shadow: var(--card-shadow);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* ADD: Focus state */
+    outline: none; 
 }
 
-.event-card:hover {
+.event-card:hover,
+.event-card:focus {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
@@ -619,7 +589,8 @@ header.sticky {
 .form-group select:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 8px rgba(0, 33, 71, 0.2);
+    /* ADD: Visible focus state */
+    box-shadow: 0 0 0 3px rgba(0, 33, 71, 0.2), 0 0 8px rgba(0, 33, 71, 0.2);
 }
 
 textarea {
@@ -666,6 +637,12 @@ textarea {
     font-size: 1.8rem;
     margin-right: 1.5rem;
     transition: color 0.3s ease;
+    /* ADD: Focus state */
+    outline: none; 
+}
+.social-links a:focus {
+    color: var(--secondary-color);
+    box-shadow: 0 0 0 2px var(--secondary-color);
 }
 
 .social-links a:hover {
@@ -711,6 +688,13 @@ footer {
     font-size: 1.5rem;
     margin: 0 0.8rem;
     transition: color 0.3s ease, transform 0.3s ease;
+    /* ADD: Focus state */
+    outline: none; 
+}
+.footer-social a:focus {
+    color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 0 0 2px var(--secondary-color);
 }
 
 .footer-social a:hover {
@@ -748,6 +732,11 @@ footer {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     z-index: 900;
+    /* ADD: Focus state */
+    outline: none;
+}
+.scroll-to-top:focus {
+    box-shadow: 0 0 0 4px var(--secondary-color);
 }
 
 .scroll-to-top.show {
@@ -797,6 +786,16 @@ footer {
         font-size: 2rem;
     }
 
+    /* NAV RIGHT WRAPPER */
+    .nav-right {
+        gap: 1rem; 
+    }
+    .lang-toggle {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+    
+    /* HAMBURGER */
     .hamburger {
         display: block;
         z-index: 1002;
@@ -820,6 +819,7 @@ footer {
         transition: all 0.3s ease;
     }
 
+    /* NAV LINKS MENU */
     .nav-links {
         position: fixed;
         top: 0;
@@ -850,14 +850,30 @@ footer {
     .nav-links li a::after {
         background: var(--secondary-color);
     }
-
-    .hero h1 {
-        font-size: 2.5rem;
+    
+    /* HERO */
+    .hero {
+        height: 60vh; 
+        min-height: 400px; 
+        display: block; 
+        padding-top: 5rem; 
+        padding-bottom: 2rem;
     }
-    .hero .tagline {
-        font-size: 1.2rem;
+    .hero-content h1 {
+        font-size: 2.2rem; 
+        line-height: 1.2;
+    }
+    .hero-content p {
+        font-size: 1rem; 
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    .hero-content {
+        text-align: center;
+        padding: 0 1rem;
     }
 
+    /* EVENTS */
     .event-card {
         flex-direction: column;
     }
@@ -871,6 +887,7 @@ footer {
     .event-date .day { font-size: 2rem; }
     .event-date .month { font-size: 1rem; }
 
+    /* FORMS */
     .form-container, .contact-container {
         padding: 1.5rem;
     }
