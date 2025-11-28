@@ -96,16 +96,12 @@
     "fees_main_heading": "Fee Structure",
     "fees_intro_para": "We are committed to providing a transparent and fair fee structure. Our fees are structured in accordance with the guidelines set by educational authorities in Nepal.",
 
-    "fee_table_th_class": "Class Level",
-    "fee_table_th_admission": "Admission Fee (One-Time)",
-    "fee_table_th_annual": "Annual Fee (Per Year)",
-    "fee_table_th_monthly": "Monthly Tuition Fee",
 
-    "fee_row_pg": "Playgroup (PG)",
-    "fee_row_nursery_ukg": "Nursery - UKG",
-    "fee_row_class_1_5": "Class 1 - 5",
-    "fee_row_class_6_8": "Class 6 - 8",
-    "fee_row_class_9_10": "Class 9 - 10",
+      "fee_admin_contact_title": "Fee Information Notice",
+    "fee_admin_contact_message": "For the latest and most detailed fee structure, including term-specific and optional charges, please **contact the school administration office directly**.",
+    "btn_contact_us": "Contact Administration",
+
+
 
     "fees_note_annual": "* The Annual Fee includes charges for library, first-aid, science lab, computer lab, and examinations.",
     "fees_note_admission": "* Admission Fees are non-refundable. Please contact the accounts office for a detailed breakdown.",
