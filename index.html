@@ -156,13 +156,13 @@
     <script src="script.js"></script>
     
     <script>
-       // --- 1. CORE VARIABLES (Initialized at the top scope) ---
+
 let slideIndex = 1;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 let autoSlideTimer; // Declared here so functions can reference it safely later
 
-// --- 2. SLIDER JAVASCRIPT FUNCTIONS ---
+
 
 function changeSlide(n) { slideIndex += n; showSlides(slideIndex); }
 function currentSlide(n) { slideIndex = n; showSlides(slideIndex); }
@@ -177,7 +177,7 @@ function resetAutoSlideTimer() {
 
 function startAutoSlide() {
     clearInterval(autoSlideTimer); 
-    // Set the timer, calling changeSlide(1) every 5000ms
+   
     autoSlideTimer = setInterval(() => { changeSlide(1); }, 2000);
 }
 
@@ -191,7 +191,7 @@ function showSlides(n) {
     slides[slideIndex-1].classList.add('active');
     dots[slideIndex-1].classList.add('active');
 
-    // Reset timer only if the function exists (it does now!)
+   
     resetAutoSlideTimer(); 
 }
 

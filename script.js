@@ -85,6 +85,156 @@ function openModal(eventCard) {
     // Display the modal
     modal.style.display = "block";
 }
+document.addEventListener('DOMContentLoaded', () => {
+    // --- Existing variable definitions ---
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    if (galleryItems.length === 0) return;
+
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const lightboxContent = document.querySelector('.lightbox-content');
+    const downloadImageBtn = document.getElementById('downloadImageBtn'); // Reference to the download button
+    
+    // --- Pan/Zoom variables (as defined in previous script) ---
+    let currentScale = 1;
+    let isPanning = false;
+    let startX, startY, currentX = 0, currentY = 0;
+    
+    function resetPan() {
+        currentX = 0;
+        currentY = 0;
+        lightboxImage.style.left = '0';
+        lightboxImage.style.top = '0';
+    }
+
+    // --- 1. Open Lightbox (FIXED Download Logic) ---
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const imageUrl = this.getAttribute('data-image-url');
+            if (imageUrl) {
+                // Set the image source for display
+                lightboxImage.src = imageUrl;
+                lightbox.classList.add('active');
+                
+                // 🔑 FIX: Ensure BOTH href and download attributes are set for the download link
+                
+                // 1. Set the destination URL for download
+                downloadImageBtn.href = imageUrl; 
+                
+                // 2. Set the desired filename for the download
+                // Extracts the filename (e.g., "image1.jpg") from the full path
+                const filename = imageUrl.substring(imageUrl.lastIndexOf('/') + 1);
+                downloadImageBtn.setAttribute('download', filename); 
+                
+                // Reset zoom/pan when opening
+                lightboxImage.style.transform = 'scale(1)';
+                currentScale = 1; 
+                lightboxImage.style.cursor = 'grab';
+                resetPan(); 
+            }
+        });
+    });
+
+    // --- 2. Close Lightbox (existing code) ---
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+    }
+    
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    // Close when clicking outside the image
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeLightbox();
+        }
+    });
+
+    // Close when the ESC key is pressed
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+    
+    // --- 3. Zoom/Pan Functionality (existing code) ---
+    
+    // Zoom listener
+    lightboxContent.addEventListener('wheel', function(e) {
+        e.preventDefault(); 
+        const zoomSpeed = 0.1;
+        const newScale = e.deltaY < 0 ? currentScale + zoomSpeed : currentScale - zoomSpeed;
+        
+        currentScale = Math.min(Math.max(1, newScale), 5);
+        lightboxImage.style.transform = `scale(${currentScale})`;
+        
+        lightboxImage.style.cursor = currentScale > 1.05 ? 'move' : 'grab';
+        
+        if (currentScale <= 1.05) {
+            resetPan();
+        }
+    });
+    
+    // Pan (move) listeners - Dragging the image
+    
+    // Start Panning
+    lightboxContent.addEventListener('mousedown', (e) => {
+        if (currentScale > 1.05) { 
+            isPanning = true;
+            startX = e.clientX - currentX;
+            startY = e.clientY - currentY;
+            lightboxImage.style.cursor = 'grabbing';
+            lightboxContent.style.cursor = 'grabbing'; 
+        }
+    });
+
+    // Panning Movement
+    lightboxContent.addEventListener('mousemove', (e) => {
+        if (!isPanning) return;
+        currentX = e.clientX - startX;
+        currentY = e.clientY - startY;
+
+        lightboxImage.style.left = `${currentX}px`;
+        lightboxImage.style.top = `${currentY}px`;
+    });
+
+    // Stop Panning
+    document.addEventListener('mouseup', () => {
+        if (isPanning) {
+            isPanning = false;
+            lightboxImage.style.cursor = 'move';
+            lightboxContent.style.cursor = 'move';
+        }
+    });
+
+    // --- 4. Mobile Touch Support (Pan) ---
+    let touchStartX = 0;
+    let touchStartY = 0;
+    
+    lightboxContent.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1 && currentScale > 1.05) {
+            isPanning = true;
+            touchStartX = e.touches[0].clientX - currentX;
+            touchStartY = e.touches[0].clientY - currentY;
+            e.preventDefault(); 
+        }
+    });
+
+    lightboxContent.addEventListener('touchmove', (e) => {
+        if (!isPanning || e.touches.length !== 1) return;
+        
+        currentX = e.touches[0].clientX - touchStartX;
+        currentY = e.touches[0].clientY - touchStartY;
+
+        lightboxImage.style.left = `${currentX}px`;
+        lightboxImage.style.top = `${currentY}px`;
+        e.preventDefault();
+    });
+
+    lightboxContent.addEventListener('touchend', () => {
+        isPanning = false;
+    });
+});
 
 // Attach openModal globally so HTML (events.html) can call it
 window.openModal = openModal;
@@ -274,4 +424,154 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+});
+document.addEventListener('DOMContentLoaded', () => {
+    // Check if the script is running in the gallery page context
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    if (galleryItems.length === 0) return;
+
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const closeBtn = document.querySelector('.lightbox-close');
+    const lightboxContent = document.querySelector('.lightbox-content');
+
+    // --- 1. Open Lightbox ---
+    galleryItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const imageUrl = this.getAttribute('data-image-url');
+            if (imageUrl) {
+                lightboxImage.src = imageUrl;
+                lightbox.classList.add('active');
+                
+                // Reset zoom/pan when opening
+                lightboxImage.style.transform = 'scale(1)';
+                lightboxImage.style.cursor = 'grab';
+                resetPan(); 
+            }
+        });
+    });
+
+    // --- 2. Close Lightbox ---
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+    }
+    
+    // Close when the 'x' is clicked
+    closeBtn.addEventListener('click', closeLightbox);
+    
+    // Close when clicking outside the image (on the dark background)
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === this) { // Checks if the click was directly on the lightbox div
+            closeLightbox();
+        }
+    });
+
+    // Close when the ESC key is pressed
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
+    
+    // --- 3. Zoom/Pan Functionality (Zoom in/out with mouse wheel) ---
+    
+    let currentScale = 1;
+    let isPanning = false;
+    let startX, startY, currentX = 0, currentY = 0;
+
+    // Reset pan variables
+    function resetPan() {
+        currentX = 0;
+        currentY = 0;
+        lightboxImage.style.left = '0';
+        lightboxImage.style.top = '0';
+    }
+
+    // Zoom listener
+    lightboxContent.addEventListener('wheel', function(e) {
+        e.preventDefault(); // Prevent page scrolling
+        
+        const zoomSpeed = 0.1;
+        const newScale = e.deltaY < 0 ? currentScale + zoomSpeed : currentScale - zoomSpeed;
+        
+        // Clamp scale between 1 (minimum) and 5 (maximum)
+        currentScale = Math.min(Math.max(1, newScale), 5);
+
+        lightboxImage.style.transform = `scale(${currentScale})`;
+        
+        // If zoomed in, change cursor to 'move'
+        lightboxImage.style.cursor = currentScale > 1.05 ? 'move' : 'grab';
+        
+        // Reset pan if zoomed back to minimum
+        if (currentScale <= 1.05) {
+            resetPan();
+        }
+    });
+    
+    // Pan (move) listeners - Dragging the image
+    
+    // Start Panning
+    lightboxContent.addEventListener('mousedown', (e) => {
+        if (currentScale > 1.05) { // Only allow panning if zoomed in
+            isPanning = true;
+            startX = e.clientX - currentX;
+            startY = e.clientY - currentY;
+            lightboxImage.style.cursor = 'grabbing';
+            lightboxContent.style.cursor = 'grabbing'; // Change cursor on the container too
+        }
+    });
+
+    // Panning Movement
+    lightboxContent.addEventListener('mousemove', (e) => {
+        if (!isPanning) return;
+        
+        // Calculate the new position
+        currentX = e.clientX - startX;
+        currentY = e.clientY - startY;
+
+        // Apply the new position
+        lightboxImage.style.left = `${currentX}px`;
+        lightboxImage.style.top = `${currentY}px`;
+    });
+
+    // Stop Panning
+    document.addEventListener('mouseup', () => {
+        if (isPanning) {
+            isPanning = false;
+            lightboxImage.style.cursor = 'move';
+            lightboxContent.style.cursor = 'move';
+        }
+    });
+
+    // --- 4. Mobile Touch Support (Zoom and Pan) ---
+    // Note: Implementing reliable multi-touch (pinch-to-zoom) is complex. 
+    // This provides basic single-touch drag pan and uses wheel for zoom (which works on some mobile browsers when scrolling).
+    
+    let touchStartX = 0;
+    let touchStartY = 0;
+    
+    lightboxContent.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 1 && currentScale > 1.05) {
+            isPanning = true;
+            touchStartX = e.touches[0].clientX - currentX;
+            touchStartY = e.touches[0].clientY - currentY;
+            e.preventDefault(); // Prevent scrolling on the page while touching the image
+        }
+    });
+
+    lightboxContent.addEventListener('touchmove', (e) => {
+        if (!isPanning || e.touches.length !== 1) return;
+        
+        currentX = e.touches[0].clientX - touchStartX;
+        currentY = e.touches[0].clientY - touchStartY;
+
+        lightboxImage.style.left = `${currentX}px`;
+        lightboxImage.style.top = `${currentY}px`;
+        e.preventDefault();
+    });
+
+    lightboxContent.addEventListener('touchend', () => {
+        isPanning = false;
+    });
+
 });

@@ -20,7 +20,106 @@
             --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             --nav-height: 80px;
         }
-        
+        /* --- Lightbox Modal CSS --- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark, slightly transparent background */
+    display: none; /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of everything */
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+    cursor: grab; /* Indicates the image can be moved/panned */
+}
+
+.lightbox-content img {
+    display: block;
+    width: auto; /* Allow image to size naturally */
+    height: auto;
+    max-width: 100%;
+    max-height: 100vh;
+    transition: transform 0.3s ease-out; /* Smooth zooming */
+    touch-action: none; /* Disable default touch actions to allow custom panning */
+}
+/* --- Download Button CSS --- */
+.download-button {
+    position: absolute;
+    top: 20px;
+    right: 90px; /* Adjust based on your close button position */
+    background-color: var(--primary-color); /* Using your primary color */
+    color: var(--white-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    display: flex; /* To align icon and text */
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    opacity: 0.8;
+    transition: opacity 0.2s, background-color 0.2s;
+    z-index: 1001; /* Above the image */
+    cursor: pointer;
+}
+
+.download-button:hover {
+    opacity: 1;
+    background-color: #003366; /* Slightly darker primary on hover */
+}
+
+.download-button i {
+    font-size: 1.1rem;
+}
+
+/* Adjust close button for download button presence */
+.lightbox-close {
+    right: 30px; /* Ensure there's space for the download button */
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 768px) {
+    .download-button {
+        top: 10px;
+        right: 70px; /* Adjust for smaller screens */
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        gap: 5px;
+    }
+    .lightbox-close {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+    z-index: 1001; /* Above the image */
+}
+
+.lightbox-close:hover {
+    opacity: 1;
+}
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -162,39 +261,39 @@
 
                 <div class="gallery-grid reveal">
                     
-                    <div class="gallery-item item-1" data-key="gallery_img_1_alt">
+                    <div class="gallery-item item-1" data-key="gallery_img_1_alt "data-image-url="assets/images/image1.jpg">
                         <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item item-2" data-key="gallery_img_2_alt">
+                    <div class="gallery-item item-2" data-key="gallery_img_2_alt"data-image-url="assets/images/image2.jpg">
                         <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item item-3" data-key="gallery_img_3_alt">
+                    <div class="gallery-item item-3" data-key="gallery_img_3_alt"data-image-url="assets/images/image3.jpg">
                         <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item item-4" data-key="gallery_img_4_alt">
+                    <div class="gallery-item item-4" data-key="gallery_img_4_alt"data-image-url="assets/images/image4.jpg">
                         <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item item-5" data-key="gallery_img_5_alt">
+                    <div class="gallery-item item-5" data-key="gallery_img_5_alt"data-image-url="assets/images/image5.jpg">
                         <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item item-6" data-key="gallery_img_6_alt">
+                    <div class="gallery-item item-6" data-key="gallery_img_6_alt"data-image-url="assets/images/image6.jpg">
                         <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item item-7" data-key="gallery_img_7_alt">
+                    <div class="gallery-item item-7" data-key="gallery_img_7_alt"data-image-url="assets/images/image7.jpg">
                         <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item item-8" data-key="gallery_img_8_alt">
+                    <div class="gallery-item item-8" data-key="gallery_img_8_alt"data-image-url="assets/images/image8.jpg">
                         <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
-                    <div class="gallery-item item-9" data-key="gallery_img_9_alt">
+                    <div class="gallery-item item-9" data-key="gallery_img_9_alt"data-image-url="assets/images/image9.jpg">
                         <div class="image-bg"></div> 
                         <div class="overlay"><i class="fas fa-search-plus"></i></div>
                     </div>
@@ -222,5 +321,17 @@
 
     <a class="scroll-to-top"><i class="fas fa-arrow-up"></i></a>
     <script src="script.js"></script>
+<div class="lightbox" id="imageLightbox">
+    <span class="lightbox-close">&times;</span>
+    <a id="downloadImageBtn" class="download-button" download>
+        <i class="fas fa-download"></i> <span data-key="download_btn_text">Download</span>
+    </a>
+    <div class="lightbox-content">
+        <img id="lightboxImage" src="" alt="Full-size gallery image">
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
 </body>
 </html>
