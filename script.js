@@ -86,7 +86,7 @@ function openModal(eventCard) {
     modal.style.display = "block";
 }
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Existing variable definitions ---
+    // --- Lightbox & Gallery Elements ---
     const galleryItems = document.querySelectorAll('.gallery-item');
     if (galleryItems.length === 0) return;
 
@@ -94,13 +94,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxImage = document.getElementById('lightboxImage');
     const closeBtn = document.querySelector('.lightbox-close');
     const lightboxContent = document.querySelector('.lightbox-content');
-    const downloadImageBtn = document.getElementById('downloadImageBtn'); // Reference to the download button
-    
-    // --- Pan/Zoom variables (as defined in previous script) ---
+    const downloadImageBtn = document.getElementById('downloadImageBtn'); 
+
+    // --- Zoom/Pan Variables ---
     let currentScale = 1;
     let isPanning = false;
-    let startX, startY, currentX = 0, currentY = 0;
+    let startX, startY, currentX = 0, currentY = 0; // Desktop pan variables
+
+    // Variables needed for Pinch-to-Zoom (two-finger input)
+    let initialDistance = null;
+    let initialScale = 1;
+    let touchStartX = 0;
+    let touchStartY = 0; // Mobile pan variables
+
+    // Helper to calculate the distance between two touch points
+    function getDistance(touches) {
+        const dx = touches[0].clientX - touches[1].clientX;
+        const dy = touches[0].clientY - touches[1].clientY;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
     
+    // Reset pan variables
     function resetPan() {
         currentX = 0;
         currentY = 0;
@@ -108,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxImage.style.top = '0';
     }
 
-    // --- 1. Open Lightbox (FIXED Download Logic) ---
+    // --- 1. Open Lightbox & Download Link Setup ---
     galleryItems.forEach(item => {
         item.addEventListener('click', function() {
             const imageUrl = this.getAttribute('data-image-url');
@@ -117,26 +131,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 lightboxImage.src = imageUrl;
                 lightbox.classList.add('active');
                 
-                // 🔑 FIX: Ensure BOTH href and download attributes are set for the download link
-                
-                // 1. Set the destination URL for download
+                // --- Download Logic ---
                 downloadImageBtn.href = imageUrl; 
-                
-                // 2. Set the desired filename for the download
-                // Extracts the filename (e.g., "image1.jpg") from the full path
                 const filename = imageUrl.substring(imageUrl.lastIndexOf('/') + 1);
                 downloadImageBtn.setAttribute('download', filename); 
                 
-                // Reset zoom/pan when opening
+                // --- Reset Zoom/Pan ---
                 lightboxImage.style.transform = 'scale(1)';
-                currentScale = 1; 
                 lightboxImage.style.cursor = 'grab';
+                currentScale = 1; 
                 resetPan(); 
             }
         });
     });
 
-    // --- 2. Close Lightbox (existing code) ---
+    // --- 2. Close Lightbox ---
     function closeLightbox() {
         lightbox.classList.remove('active');
     }
@@ -157,29 +166,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // --- 3. Zoom/Pan Functionality (existing code) ---
+    // ------------------------------------------------------------------
+    // --- 3. Desktop Zoom (Mouse Wheel) ---
+    // ------------------------------------------------------------------
     
-    // Zoom listener
     lightboxContent.addEventListener('wheel', function(e) {
-        e.preventDefault(); 
+        if (!lightbox.classList.contains('active')) return;
+
+        e.preventDefault(); // Prevent page scrolling
+        
         const zoomSpeed = 0.1;
         const newScale = e.deltaY < 0 ? currentScale + zoomSpeed : currentScale - zoomSpeed;
         
+        // Clamp scale between 1 (minimum) and 5 (maximum)
         currentScale = Math.min(Math.max(1, newScale), 5);
+
         lightboxImage.style.transform = `scale(${currentScale})`;
         
+        // If zoomed in, change cursor to 'move'
         lightboxImage.style.cursor = currentScale > 1.05 ? 'move' : 'grab';
         
+        // Reset pan if zoomed back to minimum
         if (currentScale <= 1.05) {
             resetPan();
         }
     });
     
-    // Pan (move) listeners - Dragging the image
+    // --- Desktop Pan (Dragging the image) ---
     
     // Start Panning
     lightboxContent.addEventListener('mousedown', (e) => {
-        if (currentScale > 1.05) { 
+        if (currentScale > 1.05) { // Only allow panning if zoomed in
             isPanning = true;
             startX = e.clientX - currentX;
             startY = e.clientY - currentY;
@@ -191,6 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Panning Movement
     lightboxContent.addEventListener('mousemove', (e) => {
         if (!isPanning) return;
+        
         currentX = e.clientX - startX;
         currentY = e.clientY - startY;
 
@@ -202,37 +220,75 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mouseup', () => {
         if (isPanning) {
             isPanning = false;
-            lightboxImage.style.cursor = 'move';
-            lightboxContent.style.cursor = 'move';
+            lightboxImage.style.cursor = currentScale > 1.05 ? 'move' : 'grab';
+            lightboxContent.style.cursor = 'default';
         }
     });
 
-    // --- 4. Mobile Touch Support (Pan) ---
-    let touchStartX = 0;
-    let touchStartY = 0;
-    
+
+    // ------------------------------------------------------------------
+    // --- 4. Mobile Zoom/Pan (Touch Support) ---
+    // ------------------------------------------------------------------
+
+    // 1. TOUCH START
     lightboxContent.addEventListener('touchstart', (e) => {
-        if (e.touches.length === 1 && currentScale > 1.05) {
+        if (!lightbox.classList.contains('active')) return;
+        
+        // Prevent the default browser actions (like scrolling/viewport zooming)
+        e.preventDefault(); 
+        
+        if (e.touches.length === 1) {
+            // Single touch: Prepare for Panning
             isPanning = true;
+            // Use the current X/Y positions for offset calculation
             touchStartX = e.touches[0].clientX - currentX;
             touchStartY = e.touches[0].clientY - currentY;
-            e.preventDefault(); 
+            
+            // Reset distance to ensure pinch-to-zoom doesn't trigger immediately after pan
+            initialDistance = null; 
+            
+        } else if (e.touches.length === 2) {
+            // Two touches: Prepare for Pinch-to-Zoom
+            isPanning = false;
+            initialDistance = getDistance(e.touches);
+            initialScale = currentScale;
         }
-    });
+    }, { passive: false }); // Use { passive: false } to allow e.preventDefault()
 
+    // 2. TOUCH MOVE
     lightboxContent.addEventListener('touchmove', (e) => {
-        if (!isPanning || e.touches.length !== 1) return;
-        
-        currentX = e.touches[0].clientX - touchStartX;
-        currentY = e.touches[0].clientY - touchStartY;
+        if (!lightbox.classList.contains('active')) return;
 
-        lightboxImage.style.left = `${currentX}px`;
-        lightboxImage.style.top = `${currentY}px`;
-        e.preventDefault();
-    });
+        e.preventDefault(); 
 
+        if (e.touches.length === 1 && isPanning && currentScale > 1.05) {
+            // Single-touch panning (only if zoomed in)
+            currentX = e.touches[0].clientX - touchStartX;
+            currentY = e.touches[0].clientY - touchStartY;
+
+            lightboxImage.style.left = `${currentX}px`;
+            lightboxImage.style.top = `${currentY}px`;
+
+        } else if (e.touches.length === 2 && initialDistance !== null) {
+            // Two-finger pinch-to-zoom
+            const currentDistance = getDistance(e.touches);
+            let newScale = (currentDistance / initialDistance) * initialScale;
+            
+            // Clamp scale between 1 (minimum) and 5 (maximum)
+            currentScale = Math.min(Math.max(1, newScale), 5);
+
+            lightboxImage.style.transform = `scale(${currentScale})`;
+            
+            if (currentScale <= 1.05) {
+                resetPan();
+            }
+        }
+    }, { passive: false }); // Use { passive: false } to allow e.preventDefault()
+
+    // 3. TOUCH END
     lightboxContent.addEventListener('touchend', () => {
         isPanning = false;
+        initialDistance = null; // Reset pinch detection
     });
 });
 
