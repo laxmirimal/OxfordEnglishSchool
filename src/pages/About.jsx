@@ -19,56 +19,143 @@ function About() {
         </div>
       </section>
 
-      <section className="section reveal" style={{ padding: 0 }}>
-        <div className="container" style={{ maxWidth: '100%', padding: 0, position: 'relative' }}>
+      <section className="section bg-light">
+        <div className="container">
+          <div className="principal-message-container">
+            <div className="principal-image-wrap reveal">
+              <img
+                src="/assets/images/principalmessage.jpeg"
+                alt="The Principal"
+                className="principal-img"
+              />
+              <div className="image-decoration"></div>
+            </div>
 
-          {/* Main Image - ensuring it is not cropped */}
-          <img
-            src="/assets/images/principalmessage.jpeg"
-            alt="Principal Message"
-            style={{
-              width: '100%',
-              height: 'auto',
-              display: 'block',
-              minHeight: '400px', // Fallback for very wide screens if needed, though 'auto' preserves ratio
-              objectFit: 'cover' // Only crops if we force a height, but here we let height be auto
-            }}
-          />
-
-          {/* Dark Overlay - positioned over the image */}
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-              backgroundColor: 'rgba(0, 0, 0, 0.6)', // Slightly lighter to see image details better
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            {/* Text Content */}
-            <div className="testimonial-content" style={{ maxWidth: '800px', padding: '20px', textAlign: 'center', color: '#fff' }}>
-              <i className="fas fa-quote-left" style={{ fontSize: '2rem', marginBottom: '20px', color: '#ffd700' }}></i>
-              <h2 style={{ marginBottom: '20px', color: '#fff', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>{t('principal_message_title')}</h2>
-              <p style={{
-                fontSize: 'clamp(1rem, 2vw, 1.25rem)', // Responsive font size
-                fontStyle: 'italic',
-                lineHeight: '1.6',
-                marginBottom: '20px',
-                textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
-              }}>
-                "{t('principal_message_body')}"
-              </p>
-              <div style={{ width: '50px', height: '3px', background: '#ffd700', margin: '0 auto 20px' }}></div>
-              <h4 style={{ fontSize: '1.1rem', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>- The Principal</h4>
+            <div className="principal-text-content reveal">
+              <div className="quote-icon">
+                <i className="fas fa-quote-left"></i>
+              </div>
+              <h2 className="principal-title">{t('principal_message_title')}</h2>
+              <div className="text-body">
+                <p>"{t('principal_message_body')}"</p>
+              </div>
+              <div className="principal-signature">
+                <div className="signature-line"></div>
+                <h4>- The Principal</h4>
+              </div>
             </div>
           </div>
-
         </div>
       </section>
+
+      <style jsx>{`
+        .principal-message-container {
+          display: grid;
+          grid-template-columns: 1fr 1.2fr;
+          gap: 4rem;
+          align-items: center;
+          padding: 2rem 0;
+        }
+
+        .principal-image-wrap {
+          position: relative;
+          z-index: 1;
+        }
+
+        .principal-img {
+          width: 100%;
+          border-radius: 20px;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+          position: relative;
+          z-index: 2;
+        }
+
+        .image-decoration {
+          position: absolute;
+          top: -20px;
+          left: -20px;
+          width: 100px;
+          height: 100px;
+          border-top: 5px solid var(--secondary-color);
+          border-left: 5px solid var(--secondary-color);
+          border-radius: 20px 0 0 0;
+          z-index: 0;
+        }
+
+        .principal-text-content {
+          padding: 1rem;
+        }
+
+        .quote-icon {
+          font-size: 3rem;
+          color: var(--secondary-color);
+          margin-bottom: 1.5rem;
+          opacity: 0.3;
+        }
+
+        .principal-title {
+          font-size: 2.5rem;
+          margin-bottom: 1.5rem;
+          position: relative;
+          display: inline-block;
+        }
+
+        .text-body {
+          font-size: 1.1rem;
+          line-height: 1.8;
+          color: #444;
+          font-style: italic;
+          margin-bottom: 2rem;
+        }
+
+        .principal-signature {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .signature-line {
+          width: 40px;
+          height: 3px;
+          background: var(--secondary-color);
+        }
+
+        .principal-signature h4 {
+          margin: 0;
+          font-weight: 700;
+          color: var(--primary-color);
+        }
+
+        @media (max-width: 992px) {
+          .principal-message-container {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            text-align: center;
+          }
+
+          .principal-image-wrap {
+            max-width: 500px;
+            margin: 0 auto;
+          }
+
+          .principal-signature {
+            justify-content: center;
+          }
+
+          .principal-title {
+            font-size: 2rem;
+          }
+        }
+
+        @media (max-width: 576px) {
+          .principal-title {
+            font-size: 1.75rem;
+          }
+          .text-body {
+            font-size: 1rem;
+          }
+        }
+      `}</style>
 
       <section className="section reveal" style={{ background: 'var(--light-bg)' }}>
         <div className="container">
