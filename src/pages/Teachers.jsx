@@ -23,9 +23,12 @@ function Teachers() {
           {t('teachers_intro_para')}
         </p>
 
-        <div className="teachers-grid reveal">
-          {teachers.map((teacher) => (
-            <div key={teacher.id} className="teacher-card">
+        <div className="teachers-grid">
+          {teachers.map((teacher, index) => (
+            <div
+              key={teacher.id}
+              className={`teacher-card reveal-scale delay-${(index % 5) + 1}`}
+            >
               <img
                 src={teacher.image}
                 alt={t(`teacher_${teacher.id}_name`)}

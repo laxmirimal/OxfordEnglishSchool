@@ -26,39 +26,39 @@ function Contact() {
       <div className="container">
         <h2 className="section-title">{t('contact_main_heading')}</h2>
 
-        <div className="contact-container reveal">
-          <div className="contact-info">
+        <div className="contact-container">
+          <div className="contact-info reveal-left">
             <h3>{t('contact_info_heading')}</h3>
             <p>{t('contact_info_para')}</p>
             <ul>
-              <li>
+              <li className="reveal delay-1">
                 <i className="fas fa-map-marker-alt"></i>
                 <span>{t('contact_address')}</span>
               </li>
-              <li>
+              <li className="reveal delay-2">
                 <i className="fas fa-phone"></i>
                 <a href={`tel:${t('contact_phone')}`}>{t('contact_phone')}</a>
               </li>
-              <li>
+              <li className="reveal delay-3">
                 <i className="fas fa-envelope"></i>
                 <a href={`mailto:${t('contact_email')}`}>{t('contact_email')}</a>
               </li>
-              <li>
+              <li className="reveal delay-4">
                 <i className="fas fa-clock"></i>
                 <span>{t('contact_hours')}</span>
               </li>
             </ul>
-            <div className="social-links">
+            <div className="social-links reveal delay-5">
               <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
               <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
               <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
             </div>
           </div>
 
-          <div className="contact-form">
+          <div className="contact-form reveal-right">
             <h3>{t('contact_form_heading')}</h3>
             <form onSubmit={handleSubmit}>
-              <div className="form-group">
+              <div className="form-group reveal delay-1">
                 <label htmlFor="name">{t('contact_label_name')}</label>
                 <input
                   type="text"
@@ -70,7 +70,7 @@ function Contact() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group reveal delay-2">
                 <label htmlFor="email">{t('contact_label_email')}</label>
                 <input
                   type="email"
@@ -82,7 +82,7 @@ function Contact() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group reveal delay-3">
                 <label htmlFor="subject">{t('contact_label_subject')}</label>
                 <input
                   type="text"
@@ -93,7 +93,7 @@ function Contact() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group reveal delay-4">
                 <label htmlFor="message">{t('contact_label_message')}</label>
                 <textarea
                   id="message"
@@ -105,7 +105,7 @@ function Contact() {
                   onChange={handleChange}
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary reveal">
                 {t('contact_btn_submit')}
               </button>
             </form>

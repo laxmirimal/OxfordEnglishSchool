@@ -12,7 +12,7 @@ function Fees() {
           {t('fees_intro_para')}
         </p>
 
-        <div className="reveal">
+        <div className="reveal-scale">
           <div className="fee-notice-card">
             <i className="fas fa-info-circle" style={{ fontSize: '4rem', color: 'var(--primary-color)', marginBottom: '1rem' }}></i>
             <h3>{t('fee_admin_contact_title')}</h3>
@@ -26,21 +26,21 @@ function Fees() {
         <div className="reveal" style={{ marginTop: '4rem' }}>
           <h3 style={{ textAlign: 'center', marginBottom: '2rem' }}>{t('other_fees_heading')}</h3>
           <div className="other-fees-grid">
-            <div className="fee-card">
+            <div className="fee-card reveal-left delay-1">
               <i className="fas fa-bus"></i>
               <div>
                 <h4>{t('other_fee_transport_title')}</h4>
                 <p>{t('other_fee_transport_desc')}</p>
               </div>
             </div>
-            <div className="fee-card">
+            <div className="fee-card reveal-scale delay-2">
               <i className="fas fa-tshirt"></i>
               <div>
                 <h4>{t('other_fee_uniform_title')}</h4>
                 <p>{t('other_fee_uniform_desc')}</p>
               </div>
             </div>
-            <div className="fee-card">
+            <div className="fee-card reveal-right delay-3">
               <i className="fas fa-utensils"></i>
               <div>
                 <h4>{t('other_fee_canteen_title')}</h4>
@@ -53,10 +53,10 @@ function Fees() {
         <div className="reveal" style={{ marginTop: '4rem', background: 'var(--light-bg)', padding: '2rem', borderRadius: '8px' }}>
           <h3 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>{t('payment_guidelines_heading')}</h3>
           <ul style={{ listStyleType: 'disc', marginLeft: '1.5rem', maxWidth: '600px', margin: '0 auto' }}>
-            <li>{t('payment_rule_1')}</li>
-            <li>{t('payment_rule_2')}</li>
-            <li>{t('payment_rule_3')}</li>
-            <li>{t('payment_rule_4')}</li>
+            <li className="reveal delay-1">{t('payment_rule_1')}</li>
+            <li className="reveal delay-2">{t('payment_rule_2')}</li>
+            <li className="reveal delay-3">{t('payment_rule_3')}</li>
+            <li className="reveal delay-4">{t('payment_rule_4')}</li>
           </ul>
         </div>
       </div>

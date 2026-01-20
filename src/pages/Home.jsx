@@ -66,29 +66,29 @@ function Home() {
 
       <section className="welcome-section section reveal">
         <div className="container">
-          <h2>{t('welcome_title')}</h2>
-          <p>{t('welcome_body')}</p>
-          <Link to="/about" className="btn btn-secondary">
+          <h2 className="reveal-scale">{t('welcome_title')}</h2>
+          <p className="reveal delay-1">{t('welcome_body')}</p>
+          <Link to="/about" className="btn btn-secondary reveal delay-2">
             {t('btn_learn_more')}
           </Link>
         </div>
       </section>
 
-      <section className="section reveal">
+      <section className="section">
         <div className="container">
-          <h2 className="section-title">{t('choose_us_title')}</h2>
+          <h2 className="section-title reveal">{t('choose_us_title')}</h2>
           <div className="features-grid">
-            <div className="feature-card">
+            <div className="feature-card reveal-left delay-1">
               <i className="fas fa-chalkboard-teacher"></i>
               <h3>{t('feature_title_1')}</h3>
               <p>{t('feature_desc_1')}</p>
             </div>
-            <div className="feature-card">
+            <div className="feature-card reveal-scale delay-2">
               <i className="fas fa-laptop-code"></i>
               <h3>{t('feature_title_2')}</h3>
               <p>{t('feature_desc_2')}</p>
             </div>
-            <div className="feature-card">
+            <div className="feature-card reveal-right delay-3">
               <i className="fas fa-palette"></i>
               <h3>{t('feature_title_3')}</h3>
               <p>{t('feature_desc_3')}</p>

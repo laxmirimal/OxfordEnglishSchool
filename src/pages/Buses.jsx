@@ -58,7 +58,7 @@ function Buses() {
             <i className="fas fa-route"></i> {t('bus_route_heading')}
           </h3>
 
-          <div className="table-responsive">
+          <div className="table-responsive reveal-scale">
             <table className="bus-table">
               <thead>
                 <tr>
@@ -70,7 +70,7 @@ function Buses() {
               </thead>
               <tbody>
                 {routes.map((route, index) => (
-                  <tr key={index}>
+                  <tr key={index} className={`reveal delay-${(index % 5) + 1}`}>
                     <td>
                       <i className="fas fa-map-marker-alt"></i> {t(route.zone)}
                     </td>
@@ -82,17 +82,17 @@ function Buses() {
               </tbody>
             </table>
           </div>
-          <p style={{ fontSize: '0.9rem', textAlign: 'center', marginTop: '1rem' }}>
+          <p style={{ fontSize: '0.9rem', textAlign: 'center', marginTop: '1rem' }} className="reveal delay-1">
             <em>{t('bus_note')}</em>
           </p>
         </div>
 
-        <div className="bus-form-container reveal">
+        <div className="bus-form-container reveal-scale" style={{ transitionDelay: '0.2s' }}>
           <h3 style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
             <i className="fas fa-clipboard-list"></i> {t('bus_form_heading')}
           </h3>
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
+            <div className="form-group reveal delay-1">
               <label htmlFor="studentName">
                 <i className="fas fa-user"></i> {t('bus_label_student_name')}
               </label>
@@ -106,7 +106,7 @@ function Buses() {
                 onChange={handleChange}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group reveal delay-2">
               <label htmlFor="studentClass">
                 <i className="fas fa-graduation-cap"></i> {t('bus_label_class')}
               </label>
@@ -120,7 +120,7 @@ function Buses() {
                 onChange={handleChange}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group reveal delay-3">
               <label htmlFor="parentPhone">
                 <i className="fas fa-phone"></i> {t('bus_label_phone')}
               </label>
@@ -134,7 +134,7 @@ function Buses() {
                 onChange={handleChange}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group reveal delay-4">
               <label htmlFor="pickupLocation">
                 <i className="fas fa-home"></i> {t('bus_label_location')}
               </label>
@@ -148,7 +148,7 @@ function Buses() {
                 onChange={handleChange}
               />
             </div>
-            <div className="form-group">
+            <div className="form-group reveal delay-5">
               <label htmlFor="zone">
                 <i className="fas fa-map-signs"></i> {t('bus_label_zone')}
               </label>
@@ -164,7 +164,7 @@ function Buses() {
                 <option value="Route C">{t('bus_zone_c')}</option>
               </select>
             </div>
-            <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
+            <button type="submit" className="btn btn-primary reveal" style={{ width: '100%' }}>
               {t('bus_btn_submit')}
             </button>
           </form>

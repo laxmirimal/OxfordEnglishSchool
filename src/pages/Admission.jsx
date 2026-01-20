@@ -46,37 +46,37 @@ function Admission() {
       <div className="container">
         <h2 className="section-title">{t('admission_main_heading')}</h2>
 
-        <div className="form-container reveal">
-          <div className="admission-info">
+        <div className="form-container">
+          <div className="admission-info reveal-left">
             <h3>{t('admission_info_title')}</h3>
             <p>{t('admission_info_intro')}</p>
 
             <h4 style={{ marginTop: '1.5rem' }}>{t('admission_steps_heading')}</h4>
             <ol style={{ marginLeft: '1.5rem', marginBottom: '1.5rem' }}>
-              <li>{t('step_1')}</li>
-              <li>{t('step_2')}</li>
-              <li>{t('step_3')}</li>
-              <li>{t('step_4')}</li>
-              <li>{t('step_5')}</li>
-              <li>{t('step_6')}</li>
+              <li className="reveal delay-1">{t('step_1')}</li>
+              <li className="reveal delay-2">{t('step_2')}</li>
+              <li className="reveal delay-3">{t('step_3')}</li>
+              <li className="reveal delay-4">{t('step_4')}</li>
+              <li className="reveal delay-5">{t('step_5')}</li>
+              <li className="reveal delay-1">{t('step_6')}</li>
             </ol>
 
-            <h4 style={{ marginTop: '1.5rem' }}>{t('admission_classes_heading')}</h4>
-            <ul style={{ marginLeft: '1.5rem', listStyleType: 'disc' }}>
+            <h4 style={{ marginTop: '1.5rem' }} className="reveal">{t('admission_classes_heading')}</h4>
+            <ul style={{ marginLeft: '1.5rem', listStyleType: 'disc' }} className="reveal delay-1">
               <li>{t('class_pg')}</li>
               <li>{t('class_nursery_ukg')}</li>
               <li>{t('class_1_10')}</li>
             </ul>
             <br />
-            <Link to="/contact" className="btn btn-secondary">
+            <Link to="/contact" className="btn btn-secondary reveal">
               {t('btn_contact_help')}
             </Link>
           </div>
 
-          <div className="admission-form">
+          <div className="admission-form reveal-right">
             <h3>{t('admission_form_heading')}</h3>
             <form onSubmit={sendToWhatsApp}>
-              <div className="form-group">
+              <div className="form-group reveal delay-1">
                 <label htmlFor="name">{t('label_student_name')}</label>
                 <input
                   type="text"
@@ -88,7 +88,7 @@ function Admission() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group reveal delay-2">
                 <label htmlFor="class">{t('label_applying_class')}</label>
                 <select
                   id="class"
@@ -104,7 +104,7 @@ function Admission() {
                   ))}
                 </select>
               </div>
-              <div className="form-group">
+              <div className="form-group reveal delay-3">
                 <label htmlFor="phone">{t('label_parent_phone')}</label>
                 <input
                   type="tel"
@@ -116,7 +116,7 @@ function Admission() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group reveal delay-4">
                 <label htmlFor="email">{t('label_parent_email')}</label>
                 <input
                   type="email"
@@ -128,7 +128,7 @@ function Admission() {
                   onChange={handleChange}
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group reveal delay-5">
                 <label htmlFor="message">{t('label_your_message')}</label>
                 <textarea
                   id="message"
@@ -139,7 +139,7 @@ function Admission() {
                   onChange={handleChange}
                 ></textarea>
               </div>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary reveal">
                 {t('btn_submit_inquiry')}
               </button>
             </form>

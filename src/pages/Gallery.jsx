@@ -53,7 +53,7 @@ function Gallery() {
             {images.map((image, index) => (
               <div
                 key={index}
-                className="gallery-item"
+                className={`gallery-item reveal-scale delay-${(index % 5) + 1}`}
                 onClick={() => openLightbox(image)}
               >
                 <img src={image} alt={`Gallery image ${index + 1}`} />
@@ -70,9 +70,9 @@ function Gallery() {
         <div className="lightbox active" onClick={closeLightbox}>
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             <span className="lightbox-close" onClick={closeLightbox}>&times;</span>
-            <a 
-              href={currentImage} 
-              download 
+            <a
+              href={currentImage}
+              download
               className="download-button"
               onClick={(e) => e.stopPropagation()}
             >

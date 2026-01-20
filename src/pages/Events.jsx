@@ -57,8 +57,8 @@ function Events() {
     setSelectedEvent(null)
   }
 
-  const EventCard = ({ event, showViewDetails = true }) => (
-    <div className="event-card" onClick={() => openModal(event)}>
+  const EventCard = ({ event, showViewDetails = true, index }) => (
+    <div className={`event-card ${index % 2 === 0 ? 'reveal-left' : 'reveal-right'}`} onClick={() => openModal(event)}>
       <div className="event-date">
         <span className="day">{event.day}</span>
         <span className="month">{event.month}</span>
@@ -92,23 +92,23 @@ function Events() {
         <div className="container">
           <h2 className="section-title">{t('events_main_heading')}</h2>
 
-          <h3 className="reveal" style={{ color: 'var(--primary-color)', marginTop: '3rem' }}>
+          <h3 className="reveal-left" style={{ color: 'var(--primary-color)', marginTop: '3rem' }}>
             {t('upcoming_events_title')}
           </h3>
 
-          <div className="events-container reveal">
-            {upcomingEvents.map((event) => (
-              <EventCard key={event.key} event={event} />
+          <div className="events-container">
+            {upcomingEvents.map((event, index) => (
+              <EventCard key={event.key} event={event} index={index} />
             ))}
           </div>
 
-          <h3 className="reveal" style={{ color: 'var(--primary-color)', marginTop: '4rem' }}>
+          <h3 className="reveal-right" style={{ color: 'var(--primary-color)', marginTop: '4rem' }}>
             {t('past_events_title')}
           </h3>
 
-          <div className="events-container reveal">
-            {pastEvents.map((event) => (
-              <EventCard key={event.key} event={event} showViewDetails={false} />
+          <div className="events-container">
+            {pastEvents.map((event, index) => (
+              <EventCard key={event.key} event={event} showViewDetails={false} index={index} />
             ))}
           </div>
         </div>
