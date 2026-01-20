@@ -24,7 +24,7 @@ function About() {
           <div className="principal-message-container">
             <div className="principal-image-wrap reveal">
               <img
-                src="/assets/images/principalmessage.jpeg"
+                src="/assets/images/principlemessage.jpeg"
                 alt="The Principal"
                 className="principal-img"
               />
