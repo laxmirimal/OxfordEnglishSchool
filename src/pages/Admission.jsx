@@ -20,7 +20,7 @@ function Admission() {
     e.preventDefault()
     const { name, class: selectedClass, phone, email, message } = formData
     const whatsappMessage = `*New Admission Inquiry*%0A%0AStudent Name: ${name}%0AClass: ${selectedClass}%0APhone: ${phone}%0AEmail: ${email}%0AMessage: ${message}`
-    window.open(`https://wa.me/9779804907539?text=${whatsappMessage}`, '_blank')
+    window.open(`https://wa.me/9779844676112?text=${whatsappMessage}`, '_blank')
   }
 
   const classOptions = [
