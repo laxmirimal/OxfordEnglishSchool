@@ -13,6 +13,7 @@ import Admission from './pages/Admission'
 import Buses from './pages/Buses'
 import Teachers from './pages/Teachers'
 import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -40,6 +41,7 @@ function App() {
           <Route path="/buses" element={<Buses />} />
           <Route path="/teachers" element={<Teachers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />
