@@ -19,6 +19,57 @@ function About() {
         </div>
       </section>
 
+      <section className="section reveal" style={{ padding: 0 }}>
+        <div className="container" style={{ maxWidth: '100%', padding: 0, position: 'relative' }}>
+
+          {/* Main Image - ensuring it is not cropped */}
+          <img
+            src="/assets/images/principalmessage.jpeg"
+            alt="Principal Message"
+            style={{
+              width: '100%',
+              height: 'auto',
+              display: 'block',
+              minHeight: '400px', // Fallback for very wide screens if needed, though 'auto' preserves ratio
+              objectFit: 'cover' // Only crops if we force a height, but here we let height be auto
+            }}
+          />
+
+          {/* Dark Overlay - positioned over the image */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              backgroundColor: 'rgba(0, 0, 0, 0.6)', // Slightly lighter to see image details better
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            {/* Text Content */}
+            <div className="testimonial-content" style={{ maxWidth: '800px', padding: '20px', textAlign: 'center', color: '#fff' }}>
+              <i className="fas fa-quote-left" style={{ fontSize: '2rem', marginBottom: '20px', color: '#ffd700' }}></i>
+              <h2 style={{ marginBottom: '20px', color: '#fff', textShadow: '2px 2px 4px rgba(0,0,0,0.5)' }}>{t('principal_message_title')}</h2>
+              <p style={{
+                fontSize: 'clamp(1rem, 2vw, 1.25rem)', // Responsive font size
+                fontStyle: 'italic',
+                lineHeight: '1.6',
+                marginBottom: '20px',
+                textShadow: '1px 1px 2px rgba(0,0,0,0.8)'
+              }}>
+                "{t('principal_message_body')}"
+              </p>
+              <div style={{ width: '50px', height: '3px', background: '#ffd700', margin: '0 auto 20px' }}></div>
+              <h4 style={{ fontSize: '1.1rem', fontWeight: 'bold', textShadow: '1px 1px 2px rgba(0,0,0,0.8)' }}>- The Principal</h4>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
       <section className="section reveal" style={{ background: 'var(--light-bg)' }}>
         <div className="container">
           <div className="mission-vision-grid">

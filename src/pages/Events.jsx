@@ -11,8 +11,8 @@ function Events() {
       key: 'event_1',
       day: '25',
       month: 'NOV',
-      tag: 'tag_academic',
-      image: '/assets/images/3.jpg',
+      tag: 'academic',
+      image: '/assets/images/image5.jpg',
     },
     {
       key: 'event_2',
@@ -25,8 +25,8 @@ function Events() {
       key: 'event_3',
       day: '22',
       month: 'DEC',
-      tag: 'tag_exhibition',
-      image: '/assets/images/3.jpg',
+      tag: 'scouts',
+      image: '/assets/images/image13.jpg',
     },
   ]
 
@@ -35,14 +35,14 @@ function Events() {
       key: 'past_event_1',
       day: '10',
       month: 'NOV',
-      tag: 'tag_celebration',
+      tag: 'celebration',
       image: '/assets/images/events.jpg',
     },
     {
       key: 'past_event_2',
       day: '25',
       month: 'OCT',
-      tag: 'tag_sports',
+      tag: 'sports',
       image: '/assets/images/slider_bg_1.jpg',
     },
   ]

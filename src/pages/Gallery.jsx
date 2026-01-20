@@ -20,6 +20,14 @@ function Gallery() {
     '/assets/images/image12.jpg',
     '/assets/images/image13.jpg',
     '/assets/images/image14.jpg',
+    '/assets/images/unpic1.jpeg',
+    '/assets/images/unpic2.jpeg',
+    '/assets/images/unpic3.jpeg',
+    '/assets/images/unpic4.jpeg',
+    '/assets/images/unpic5.jpeg',
+    '/assets/images/unpic6.jpeg',
+    '/assets/images/unpic7.jpeg',
+    '/assets/images/unpic8.jpeg',
   ]
 
   const openLightbox = (image) => {
