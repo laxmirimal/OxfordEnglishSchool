@@ -12,10 +12,11 @@ function Footer() {
         </Link>
         <p>{t('footer_address')}</p>
         <div className="footer-social">
-          <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+          <a href="https://www.facebook.com/OxfordESS/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
           <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
           <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
         </div>
+
         <p className="footer-copyright">
           <span>{t('footer_copyright_prefix')}</span>
         </p>

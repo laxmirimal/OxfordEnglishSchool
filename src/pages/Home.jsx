@@ -74,6 +74,52 @@ function Home() {
         </div>
       </section>
 
+      <section className="section mission-vision-home reveal">
+        <div className="container">
+          <div className="home-about-grid">
+            <div className="home-about-image reveal-left">
+              <img src="/assets/images/slider_bg_1.jpg" alt="School Environment" />
+            </div>
+            <div className="home-about-content reveal-right">
+              <div className="mv-cards">
+                <div className="mv-card reveal delay-1">
+                  <i className="fas fa-bullseye"></i>
+                  <h3>{t('home_mission_title')}</h3>
+                  <p>{t('home_mission_body')}</p>
+                </div>
+                <div className="mv-card reveal delay-2">
+                  <i className="fas fa-eye"></i>
+                  <h3>{t('home_vision_title')}</h3>
+                  <p>{t('home_vision_body')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="quick-stats section reveal">
+        <div className="container">
+          <div className="stats-grid">
+            <div className="stat-item reveal delay-1">
+              <i className="fas fa-history"></i>
+              <span className="count">25+</span>
+              <p>{t('stats_years_label')}</p>
+            </div>
+            <div className="stat-item reveal delay-2">
+              <i className="fas fa-users"></i>
+              <span className="count">1000+</span>
+              <p>{t('stats_students_label')}</p>
+            </div>
+            <div className="stat-item reveal delay-3">
+              <i className="fas fa-user-tie"></i>
+              <span className="count">50+</span>
+              <p>{t('stats_teachers_label')}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="container">
           <h2 className="section-title reveal">{t('choose_us_title')}</h2>
@@ -96,6 +142,7 @@ function Home() {
           </div>
         </div>
       </section>
+
     </>
   )
 }

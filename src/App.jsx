@@ -5,6 +5,8 @@ import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import ScrollToTopReset from './components/ScrollToTopReset'
 import Loader from './components/Loader'
+import WhatsAppButton from './components/WhatsAppButton'
+
 import Home from './pages/Home'
 import About from './pages/About'
 import Gallery from './pages/Gallery'
@@ -75,7 +77,9 @@ function App() {
       </main>
       <Footer />
       <ScrollToTop />
+      <WhatsAppButton />
     </>
+
   )
 }
 

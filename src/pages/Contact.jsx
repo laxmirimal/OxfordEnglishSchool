@@ -18,8 +18,9 @@ function Contact() {
     e.preventDefault()
     const { name, email, subject, message } = formData
     const whatsappMessage = `*Contact Form Submission*%0A%0AName: ${name}%0AEmail: ${email}%0ASubject: ${subject}%0AMessage: ${message}`
-    window.open(`https://wa.me/9779804907539?text=${whatsappMessage}`, '_blank')
+    window.open(`https://wa.me/9779852675573?text=${whatsappMessage}`, '_blank')
   }
+
 
   return (
     <section className="section page-section">
@@ -49,10 +50,11 @@ function Contact() {
               </li>
             </ul>
             <div className="social-links reveal delay-5">
-              <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+              <a href="https://www.facebook.com/OxfordESS/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
               <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
               <a href="#" aria-label="YouTube"><i className="fab fa-youtube"></i></a>
             </div>
+
           </div>
 
           <div className="contact-form reveal-right">
@@ -114,7 +116,7 @@ function Contact() {
 
         <div className="map-container reveal" style={{ marginTop: '3rem' }}>
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3565.2548361951!2d87.68847331504!3d26.661234283226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e5b4e3f3f3f3f3%3A0x3f3f3f3f3f3f3f3f!2sDamak%2C%20Nepal!5e0!3m2!1sen!2snp!4v1634567890123!5m2!1sen!2snp"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3564.444903332717!2d87.6707428!3d26.6920039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e58ddc7c7620a7%3A0x17590d3a465b7fca!2sOxford%20English%20Secondary%20School!5e0!3m2!1sen!2snp!4v1705820000000!5m2!1sen!2snp"
             width="100%"
             height="450"
             style={{ border: 0 }}
@@ -122,6 +124,7 @@ function Contact() {
             loading="lazy"
             title="School Location Map"
           ></iframe>
+
         </div>
       </div>
     </section>
